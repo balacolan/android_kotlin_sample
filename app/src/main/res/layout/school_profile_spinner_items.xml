@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="com.colan.kindercare.R"/>
+
+        <variable
+            name="view"
+            type="android.view.View"/>
+
+        <variable
+            name="schoolItem"
+            type="com.colan.kindercare.data.remote.data.response.SchoolListResponse"/>
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="8dp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="24dp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/_8sdp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="8dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:id="@+id/top_spinner_view"
+        android:background="@{schoolItem.isSelected? @drawable/rectangle_backgroud_with_corner_radius_blue:@drawable/rectangle_backgroud_with_corner_radius_grey}"
+        android:layout_marginTop="@dimen/_15sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="@dimen/_50sdp"/>
+<!--
+    android:background="@{schoolItem.isSelected? @drawable/rectangle_backgroud_with_corner_radius_blue:@drawable/rectangle_backgroud_with_corner_radius_grey}"
+-->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageView2"
+        android:layout_width="@dimen/_42sdp"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        app:layout_constraintTop_toTopOf="@+id/top_spinner_view"
+        app:layout_constraintLeft_toLeftOf="@+id/top_spinner_view"
+        app:layout_constraintBottom_toBottomOf="@+id/top_spinner_view"
+        app:civ_border_color="@color/colorPrimary"
+        app:civ_border_width="@dimen/_1sdp"
+        android:src="@drawable/ic_school" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:id="@+id/chid_name_tv"
+        android:text="@={schoolItem.schoolName}"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:textSize="@dimen/_12ssp"
+        android:fontFamily="@font/bwsurcodemo_book"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintLeft_toRightOf="@+id/imageView2"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:text="@{schoolItem.location+' '+@string/branch}"
+        android:id="@+id/child_section_tv"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:textSize="@dimen/_11ssp"
+        android:fontFamily="@font/bwsurcodemo_book"
+        android:textColor="@color/text_black"
+        app:layout_constraintTop_toBottomOf="@+id/chid_name_tv"
+        app:layout_constraintLeft_toRightOf="@+id/imageView2"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:id="@+id/selection_iv"
+        android:layout_marginEnd="@dimen/_10sdp"
+        app:layout_constraintTop_toTopOf="@+id/top_spinner_view"
+        app:layout_constraintRight_toRightOf="@+id/top_spinner_view"
+        app:layout_constraintBottom_toBottomOf="@+id/top_spinner_view"
+        android:src="@{schoolItem.isSelected? @drawable/ic_drop_down_selected:@drawable/ic_drop_down_unselected}"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

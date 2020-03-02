@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="bathRoomStudentVM"
+            type="com.colan.kindercare.ui.modules.teacher.dailyActivity.DailyActivityVM" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/custom_toolbar" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/background">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+                <include
+                    android:id="@+id/add_more_image_iv"
+                    layout="@layout/step_one_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                    app:layout_constraintTop_toBottomOf="@+id/add_more_image_iv">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_10sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/class_room_activity_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/bwsurcodemo_bold"
+                            android:padding="@dimen/_5sdp"
+                            android:text="@string/bathroom_activity"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/line_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_margin="@dimen/_4sdp"
+                            android:background="@color/veiw_grey"
+                            app:layout_constraintTop_toBottomOf="@id/class_room_activity_tv" />
+
+
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/hour_sp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:background="@drawable/bg_dropdown"
+                            android:drawableEnd="@drawable/ic_calendar"
+                            android:drawablePadding="@dimen/_10sdp"
+                            android:entries="@array/class_array"
+                            android:fontFamily="@font/bwsurcodemo_medium"
+                            android:padding="@dimen/_10sdp"
+                            android:prompt="@string/gender_prompt"
+                            android:textColor="@color/textColor"
+                            android:textColorHint="@color/hintColor"
+                            android:textSize="@dimen/_12ssp"
+                            android:overlapAnchor="false"
+                            app:layout_constraintEnd_toStartOf="@+id/minute_sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/line_view" />
+
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/minute_sp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/bg_dropdown"
+                            android:drawableEnd="@drawable/ic_calendar"
+                            android:drawablePadding="@dimen/_10sdp"
+                            android:entries="@array/section_selection_array"
+                            android:fontFamily="@font/bwsurcodemo_medium"
+                            android:padding="@dimen/_10sdp"
+                            android:prompt="@string/gender_prompt"
+                            android:textColor="@color/textColor"
+                            android:textColorHint="@color/hintColor"
+                            android:textSize="@dimen/_12ssp"
+                            android:overlapAnchor="false"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/hour_sp"
+                            app:layout_constraintTop_toBottomOf="@+id/line_view" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/selected_students_label"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/bwsurcodemo_medium"
+                            android:padding="@dimen/_5sdp"
+                            android:text="@string/student"
+                            android:textColor="@color/text_color_dark"
+                            android:textSize="@dimen/_14ssp"
+                            app:layout_constraintBottom_toBottomOf="@id/edit_tv"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/edit_tv" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/edit_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|end"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:fontFamily="@font/bwsurcodemo_medium"
+                            android:padding="@dimen/_5sdp"
+                            android:text="@string/add_remove"
+                            android:textColor="@color/date_picker_bg"
+                            android:textSize="@dimen/_14ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/minute_sp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/students_rv"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_155sdp"
+                            android:layout_margin="@dimen/_3sdp"
+                            android:background="@drawable/rectangle_backgroud_white"
+                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/edit_tv"
+                            app:spanCount="2" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

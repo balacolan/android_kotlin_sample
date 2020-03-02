@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="leaveStatusViewModel"
+            type="com.colan.kindercare.ui.modules.common.leavestatus.LeaveStatusVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/custom_toolbar" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvFamilyDetail"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_4sdp"
+            android:background="@android:color/white"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardElevation="@dimen/_2sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/_10sdp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/_10sdp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_centre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.45" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/leave_days_label"
+                    style="@style/textStyleRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/bg_corner_top"
+                    android:text="@string/leave_days"
+                    app:layout_constraintBottom_toBottomOf="@id/leave_days_tv"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                    app:layout_constraintTop_toTopOf="@id/leave_days_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/leave_days_tv"
+                    style="@style/textStyleMedium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@{leaveStatusViewModel.mLeaveDaysData}"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                    app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/leave_from_label"
+                    style="@style/textStyleRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/text_bg"
+                    android:text="@string/leave_from"
+                    app:layout_constraintBottom_toBottomOf="@id/leave_from_tv"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                    app:layout_constraintTop_toTopOf="@id/leave_from_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/leave_from_tv"
+                    style="@style/textStyleMedium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{leaveStatusViewModel.mFromDateData}"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                    app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                    app:layout_constraintTop_toBottomOf="@id/leave_days_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/leave_till_label"
+                    style="@style/textStyleRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/text_bg"
+                    android:text="@string/leave_till"
+                    app:layout_constraintBottom_toBottomOf="@id/leave_till_tv"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                    app:layout_constraintTop_toTopOf="@id/leave_till_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/leave_till_tv"
+                    style="@style/textStyleMedium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{leaveStatusViewModel.mToDateData}"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                    app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                    app:layout_constraintTop_toBottomOf="@id/leave_from_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/leave_type_label"
+                    style="@style/textStyleRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/text_bg"
+                    android:text="@string/leave_type"
+                    app:layout_constraintBottom_toBottomOf="@id/leave_type_tv"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                    app:layout_constraintTop_toTopOf="@id/leave_type_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/leave_type_tv"
+                    style="@style/textStyleMedium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{leaveStatusViewModel.mLeaveTypeData}"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                    app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                    app:layout_constraintTop_toBottomOf="@id/leave_till_tv" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/reason_for_leave_label"
+                    style="@style/textStyleRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/text_bg"
+                    android:text="@string/reason_for_leave"
+                    app:layout_constraintBottom_toBottomOf="@id/reason_for_leave_tv"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                    app:layout_constraintTop_toTopOf="@id/reason_for_leave_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/reason_for_leave_tv"
+                    style="@style/textStyleMedium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{leaveStatusViewModel.mReasonData}"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                    app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                    app:layout_constraintTop_toBottomOf="@id/leave_type_tv" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/emergency_contact_label"
+                    style="@style/textStyleRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/text_bg"
+                    android:text="@string/emergency_contact"
+                    app:layout_constraintBottom_toBottomOf="@id/emergency_contact_tv"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                    app:layout_constraintTop_toTopOf="@id/emergency_contact_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/emergency_contact_tv"
+                    style="@style/textStyleForNumbers"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{leaveStatusViewModel.mContactNo}"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                    app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                    app:layout_constraintTop_toBottomOf="@id/reason_for_leave_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/status_label"
+                    style="@style/textStyleRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/bg_corner_bottom"
+                    android:text="@string/status"
+                    app:layout_constraintBottom_toBottomOf="@id/status_tv"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                    app:layout_constraintTop_toTopOf="@id/status_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/status_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bwsurcodemo_medium"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:paddingStart="@dimen/_8sdp"
+                    android:text="@{leaveStatusViewModel.mLeaveApproveStatusData}"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:textColor="@color/color_yellow"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                    app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                    app:layout_constraintTop_toBottomOf="@id/emergency_contact_tv" />
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_delete"
+                    android:layout_width="@dimen/_155sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_40sdp"
+                    android:background="@drawable/btn_red_bg"
+                    android:fontFamily="@font/bwsurcodemo_medium"
+                    android:text="@string/delete_request"
+                    android:onClick="@{(view)->leaveStatusViewModel.onClickAction(view)}"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_16ssp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

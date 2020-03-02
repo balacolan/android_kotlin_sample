@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="teacherDashboardVM"
+            type="com.colan.kindercare.ui.modules.teacher.TeacherDashboardVM" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.modules.teacher.TeacherDashboardFragment">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="2dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="24dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="8dp" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".5" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/birtthday_wish_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/birthday_layout_gradient_bg"
+            android:fontFamily="@font/bwsurcodemo_medium"
+            android:text="@string/birthday_wish"
+            android:paddingStart="@dimen/_20sdp"
+            android:drawablePadding="@dimen/_10sdp"
+            android:textAllCaps="false"
+            android:drawableStart="@drawable/ic_birthday"
+            android:textAlignment="textStart"
+            app:layout_constraintTop_toTopOf="@+id/guideline_top"
+            app:layout_constraintRight_toRightOf="@+id/guideline_right"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+            android:textColor="@color/colorWhite"
+            tools:ignore="RtlSymmetry" />
+
+
+        <View
+            android:layout_width="0dp"
+            android:id="@+id/line_view"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/veiw_grey"
+            app:layout_constraintRight_toRightOf="@+id/guideline_right"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@+id/birtthday_wish_view"
+            android:layout_height="@dimen/_2sdp"
+            bind:layout_constraintBottom_toTopOf="@+id/class_layout"
+            android:layout_marginBottom="@dimen/_5sdp" />
+
+
+        <include
+            android:layout_width="0dp"
+
+            android:id="@+id/class_layout"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintRight_toRightOf="@+id/guideline_center"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@+id/line_view"
+            layout="@layout/teacher_dashboard_list_items" />
+
+        <include
+            android:layout_width="0dp"
+            android:id="@+id/student_layout"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintRight_toRightOf="@+id/guideline_right"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_center"
+            app:layout_constraintTop_toBottomOf="@+id/line_view"
+            layout="@layout/teacher_dashboard_list_items" />
+
+
+        <include
+            android:layout_width="0dp"
+            android:id="@+id/days_layout"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintRight_toRightOf="@+id/guideline_center"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@+id/class_layout"
+            layout="@layout/teacher_dashboard_list_items" />
+
+        <include
+            android:layout_width="0dp"
+            android:id="@+id/leave_layout"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintRight_toRightOf="@+id/guideline_right"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_center"
+            app:layout_constraintTop_toBottomOf="@+id/class_layout"
+            layout="@layout/teacher_dashboard_list_items" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

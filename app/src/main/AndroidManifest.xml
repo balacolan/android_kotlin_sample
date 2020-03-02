@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.colan.kindercare">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- Needed to store received images if the user wants to -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <application
+        android:name=".KinderApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@drawable/logo"
+        android:supportsRtl="true"
+        android:requestLegacyExternalStorage="true"
+        android:usesCleartextTraffic="true"
+
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ui.modules.common.message.trash.TrashFragment"></activity>
+        <activity android:name=".ui.before_login.resetPassword.PasswordResetActivity" />
+        <activity android:name=".ui.modules.admin.pickupApproval.details.PickupPersonDetails" />
+        <activity android:name=".ui.modules.admin.addWeeklyMenu.AddWeeklyMenuActivity" />
+        <activity android:name=".ui.modules.admin.enroll.addEnquiry.AddEnquiryActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".ui.modules.admin.enroll.details.EnrollmentDetailsActivity" />
+        <activity android:name=".ui.modules.teacher.dailyActivity.AllActivity.AllDailyCommonActivty" />
+        <activity android:name=".ui.modules.teacher.dailyActivity.ActivtyChoosingActivity" />
+        <activity android:name=".ui.modules.common.leaveapproval.details.LeaveApprovalActivity" />
+        <activity android:name=".ui.modules.common.notification.NotificationActivity" />
+        <activity android:name=".ui.modules.common.dailyactivity.details.DailyActivityDetail" />
+        <activity android:name=".ui.modules.common.profile.EditProfileActivity" />
+        <activity android:name=".ui.modules.common.profile.ProfileActivity" />
+        <activity android:name=".ui.modules.common.changepassword.ChangePasswordActivity" />
+        <activity android:name=".ui.modules.common.message.compose.ComposeActivity" />
+        <activity android:name=".ui.modules.common.message.sent.details.SentMsgDetailActivity" />
+        <activity android:name=".ui.modules.common.leavestatus.LeaveStatusActivity" />
+        <activity android:name=".ui.modules.common.leavestatus.RequestLeaveActivity" />
+        <activity android:name=".ui.modules.common.message.details.MessageDetailActivity" />
+        <activity android:name=".ui.modules.common.message.attachment.AttachmentActivity" />
+        <activity android:name=".ui.dashboard.fragments.add_child.AddChildActitvity" />
+        <activity android:name=".ui.before_login.splashscreen.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.modules.parent.payment.PaymentInvoiceTranscationActivity" />
+        <activity android:name=".ui.dashboard.DashboardActivity" />
+        <activity android:name=".ui.before_login.login.LoginActivity" />
+        <activity android:name=".ui.before_login.forgot_password.ForgotPasswordActivity" />
+        <activity android:name=".ui.modules.parent.familyinformation.AuthorizedPickupActivity" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" /> <!-- optional (needed if default theme has no action bar) -->
+    </application>
+
+</manifest>

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="pickUpDetailsVM"
+            type="com.colan.kindercare.ui.modules.admin.pickupApproval.PickupPersonVM" />
+
+        <import type="android.view.View" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/custom_toolbar" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvFamilyDetail"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/_4sdp"
+                android:background="@android:color/white"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_2sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="@dimen/_10sdp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="@dimen/_10sdp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_centre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.45" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_top"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_begin="@dimen/_10sdp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_bottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_end="@dimen/_10sdp" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/leave_days_label"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/bg_corner_top"
+                        android:text="@string/student_name"
+                        app:layout_constraintBottom_toBottomOf="@id/leave_days_tv"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/leave_days_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/leave_days_tv"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{pickUpDetailsVM.studentName}"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@+id/guideline_top"/>
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/leave_type_label"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/text_bg"
+                        android:text="@string/class_name"
+                        app:layout_constraintBottom_toBottomOf="@id/leave_type_tv"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/leave_type_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/leave_type_tv"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{pickUpDetailsVM.classSection}"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/leave_days_tv" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/reason_for_leave_label"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/text_bg"
+                        android:text="@string/father_name"
+                        app:layout_constraintBottom_toBottomOf="@id/reason_for_leave_tv"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/reason_for_leave_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/reason_for_leave_tv"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{pickUpDetailsVM.fathersName}"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/leave_type_tv" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/mother_name_label"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/text_bg"
+                        android:text="@string/mother_name"
+                        app:layout_constraintBottom_toBottomOf="@id/mother_name_tv"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/mother_name_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/mother_name_tv"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{pickUpDetailsVM.mothersName}"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/reason_for_leave_tv" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/emergency_contact_label"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/text_bg"
+                        android:text="@string/pickup_person"
+                        app:layout_constraintBottom_toBottomOf="@id/emergency_contact_tv"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/emergency_contact_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/emergency_contact_tv"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{pickUpDetailsVM.pickupPerson}"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/mother_name_tv" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/email_label"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/text_bg"
+                        android:text="@string/relationship"
+                        app:layout_constraintBottom_toBottomOf="@id/email_tv"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/email_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/email_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:paddingStart="@dimen/_8sdp"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:text="@{pickUpDetailsVM.relationShip}"
+                        android:textSize="@dimen/_14ssp"
+                        style="@style/textStyleMedium"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/emergency_contact_tv"
+                        tools:ignore="RtlSymmetry" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/purpose_label"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/bg_corner_bottom"
+                        android:text="@string/contact_number"
+                        app:layout_constraintBottom_toBottomOf="@id/purpose_tv"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/purpose_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/purpose_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        style="@style/textStyleForNumbers"
+                        android:paddingStart="@dimen/_8sdp"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:text="@{pickUpDetailsVM.contacts}"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/email_tv"
+                        app:layout_constraintBottom_toTopOf="@+id/guideline_bottom"
+                        tools:ignore="RtlSymmetry" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.core.widget.NestedScrollView>
+
+
+        <include
+            layout="@layout/reject_approv_layout"
+            android:id="@+id/bottom_layout"
+            android:layout_width="match_parent"
+            android:visibility="@{pickUpDetailsVM.approvedStatus.equals(`pending`)?View.VISIBLE:View.GONE}"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

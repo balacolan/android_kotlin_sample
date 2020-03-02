@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="ld_activityScreenTitles">
+        <item>Dashboard</item>
+        <item>Family Information</item>
+        <item>Payment</item>
+        <item>Messages</item>
+        <item>Leave Application</item>
+        <item>Weekly Menu</item>
+        <item>Calender</item>
+        <item>Change Password</item>
+        <item>Logout</item>
+    </string-array>
+
+    <array name="ld_activityScreenIcons">
+        <item>@drawable/ic_nav_dashboard</item>
+        <item>@drawable/ic_family_info</item>
+        <item>@drawable/ic_payment</item>
+        <item>@drawable/ic_message</item>
+        <item>@drawable/ic_leave</item>
+        <item>@drawable/ic_weekly_menu</item>
+        <item>@drawable/ic_calendar</item>
+        <item>@drawable/ic_change_pwd</item>
+        <item>@drawable/ic_logout</item>
+    </array>
+
+    <string-array name="teacher_activityScreenTitles">
+        <item>Dashboard</item>
+        <item>Attendance</item>
+        <item>Messages</item>
+        <item>Leave Application</item>
+        <item>Leave Approval</item>
+        <item>Weekly Menu</item>
+        <item>Daily Activity</item>
+        <item>Logout</item>
+    </string-array>
+
+    <array name="teacher_activityScreenIcons">
+        <item>@drawable/ic_nav_dashboard</item>
+        <item>@drawable/ic_attendance</item>
+        <item>@drawable/ic_message</item>
+        <item>@drawable/ic_leave</item>
+        <item>@drawable/ic_apply_leave</item>
+        <item>@drawable/ic_weekly_menu</item>
+        <item>@drawable/ic_daily_activity</item>
+        <item>@drawable/ic_logout</item>
+    </array>
+
+
+
+    <string-array name="admin_activityScreenTitles">
+        <item>Dashboard</item>
+        <item>Report</item>
+        <item>Attendance</item>
+        <item>Messages</item>
+        <item>Enrollment Enquiry</item>
+        <item>Pickup Person Approval</item>
+        <item>Leave Application</item>
+        <item>Leave Approval</item>
+        <item>Weekly Menu</item>
+        <item>Daily Activity</item>
+        <item>Logout</item>
+    </string-array>
+
+
+    <array name="admin_activityScreenIcons">
+        <item>@drawable/ic_nav_dashboard</item>
+        <item>@drawable/ic_report</item>
+        <item>@drawable/ic_attendance</item>
+        <item>@drawable/ic_message</item>
+        <item>@drawable/ic_enrollment</item>
+        <item>@drawable/ic_pickup_person</item>
+        <item>@drawable/ic_leave</item>
+        <item>@drawable/ic_apply_leave</item>
+        <item>@drawable/ic_weekly_menu</item>
+        <item>@drawable/ic_daily_activity</item>
+        <item>@drawable/ic_logout</item>
+    </array>
+
+
+    <string-array name="super_admin_activityScreenTitles">
+        <item>Dashboard</item>
+        <item>Report</item>
+        <item>Attendance</item>
+        <item>Messages</item>
+        <item>Enrollment Enquiry</item>
+        <item>Pickup Person Approval</item>
+        <item>Leave Approval</item>
+        <item>Logout</item>
+    </string-array>
+
+
+    <array name="super_admin_activityScreenIcons">
+        <item>@drawable/ic_nav_dashboard</item>
+        <item>@drawable/ic_report</item>
+        <item>@drawable/ic_attendance</item>
+        <item>@drawable/ic_message</item>
+        <item>@drawable/ic_enrollment</item>
+        <item>@drawable/ic_pickup_person</item>
+        <item>@drawable/ic_apply_leave</item>
+        <item>@drawable/ic_logout</item>
+    </array>
+
+</resources>

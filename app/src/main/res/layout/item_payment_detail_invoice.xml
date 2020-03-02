@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="itemPaymentDetailInvoiceVM"
+            type="com.colan.kindercare.data.model.PaymentInvoiceDetailResponse"/>
+        <import type="android.view.View" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:id="@+id/top_cv"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/item_cs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/top_cv"
+            app:layout_constraintLeft_toLeftOf="@+id/top_cv"
+            app:layout_constraintRight_toRightOf="@+id/top_cv"
+            app:layout_constraintTop_toTopOf="@+id/top_cv">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide_line_left_start"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.20" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide_line_left_end"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.80" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/invoice_item_term_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="@{itemPaymentDetailInvoiceVM.name}"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:textColor="@color/purpleColor"
+                android:textSize="@dimen/_12ssp"
+                android:translationZ="@dimen/_100sdp"
+                app:layout_constraintLeft_toLeftOf="@+id/item_cs"
+                app:layout_constraintRight_toRightOf="@+id/guide_line_left_start"
+                app:layout_constraintTop_toTopOf="parent" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/purpleColor"
+                app:layout_constraintLeft_toLeftOf="@+id/invoice_item_term_tv"
+                app:layout_constraintRight_toRightOf="@+id/invoice_item_term_tv"
+                app:layout_constraintTop_toBottomOf="@+id/invoice_item_term_tv"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/invoice_item_term_amount_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="3000"
+                android:textAlignment="center"
+                android:textColor="@{itemPaymentDetailInvoiceVM.visibility ? @color/colorBlack : @color/colorPrimary }"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:textSize="@dimen/_12ssp"
+                android:translationZ="@dimen/_100sdp"
+                app:layout_constraintLeft_toLeftOf="@id/guide_line_left_start"
+                app:layout_constraintRight_toRightOf="@id/guide_line_left_end"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/invoice_item_status_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:text="@{itemPaymentDetailInvoiceVM.status}"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                android:textAlignment="textEnd"
+                android:textColor="@{itemPaymentDetailInvoiceVM.visibility ? @color/orange : @color/btn_green }"
+                android:textSize="@dimen/_12ssp"
+                android:translationZ="@dimen/_100sdp"
+                app:layout_constraintLeft_toLeftOf="@+id/guide_line_left_end"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="0.1dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@color/colorGray"
+            android:visibility="@{itemPaymentDetailInvoiceVM.visibility ? View.GONE : View.VISIBLE }"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_cs" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

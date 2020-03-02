@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/_2sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/_16sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/_16sdp" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_little_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".55" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/step1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_step1_end"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_top" />
+
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/date_picker_bg"
+        app:layout_constraintBottom_toBottomOf="@+id/step1"
+        app:layout_constraintLeft_toRightOf="@+id/step1"
+        app:layout_constraintRight_toLeftOf="@+id/guideline_center"
+        app:layout_constraintTop_toTopOf="@+id/step1" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/step2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_step2_started"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_center"
+        app:layout_constraintRight_toRightOf="@+id/guideline_center"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_top" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_2sdp"
+        android:background="@color/view_line_color"
+        app:layout_constraintBottom_toBottomOf="@+id/step1"
+        app:layout_constraintLeft_toRightOf="@+id/guideline_little_center"
+        app:layout_constraintRight_toLeftOf="@+id/step3"
+        app:layout_constraintTop_toTopOf="@+id/step1" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/step3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_setp3_not_started"
+        app:layout_constraintRight_toRightOf="@+id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_top" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/leave_status_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_3sdp"
+    app:cardCornerRadius="@dimen/_8sdp"
+    app:cardElevation="@dimen/_1sdp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_4sdp">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineVertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_centre"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".50" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_start"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_15sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_end"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_15sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_hor_right_20_per"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".40" />
+
+        <View
+            android:id="@+id/student_iv"
+            android:layout_width="@dimen/_42sdp"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@color/background"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/child_name_tv"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@color/background"
+            app:layout_constraintLeft_toRightOf="@+id/student_iv"
+            app:layout_constraintTop_toTopOf="@+id/student_iv" />
+
+        <View
+            android:id="@+id/time_tv"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@color/background"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/student_iv" />
+
+        <View
+            android:id="@+id/child_section_tv"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@color/background"
+            app:layout_constraintBottom_toBottomOf="@+id/student_iv"
+            app:layout_constraintLeft_toRightOf="@+id/student_iv"
+            app:layout_constraintTop_toBottomOf="@+id/child_name_tv" />
+
+
+        <View
+            android:id="@+id/ivType"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@color/background"
+            app:layout_constraintBottom_toBottomOf="@id/tvLeaveType"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvLeaveType" />
+
+        <View
+            android:id="@+id/tvLeaveType"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_5sdp"
+            android:background="@color/background"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_hor_right_20_per"
+            app:layout_constraintStart_toEndOf="@+id/ivType"
+            app:layout_constraintTop_toBottomOf="@+id/student_iv" />
+
+        <View
+            android:id="@+id/view_first"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_margin="@dimen/_4sdp"
+            android:background="@color/color_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline_hor_right_20_per" />
+
+
+        <View
+            android:id="@+id/tvLeaveDate"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:background="@color/background"
+            app:layout_constraintBottom_toBottomOf="@+id/constraint_leave"
+            app:layout_constraintEnd_toEndOf="@id/guidelineVertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/constraint_leave" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_leave"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@color/background"
+            app:layout_constraintBottom_toTopOf="@+id/rejected_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guidelineVertical"
+            app:layout_constraintTop_toBottomOf="@id/view_first">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide_line_right"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".30" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide_line_left"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".70" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toTopOf="@+id/tvStartDate"
+                app:layout_constraintEnd_toStartOf="@+id/guide_line_right"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toTopOf="@+id/tvEndDate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/guide_line_left"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvStartDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bwsurcodemo_bold"
+                android:text="@{leaveApprovalItem.tvStartDate}"
+                android:textColor="@color/date_color"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/tvStartYear"
+                app:layout_constraintEnd_toStartOf="@+id/guide_line_right"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvStart" />
+
+            <View
+                android:id="@+id/view_second"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/view_bg_color"
+                app:layout_constraintBottom_toTopOf="@+id/tvStartYear"
+                app:layout_constraintEnd_toStartOf="@+id/guide_line_left"
+                app:layout_constraintStart_toEndOf="@+id/guide_line_right"
+                app:layout_constraintTop_toBottomOf="@+id/tvStart" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvEndDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bwsurcodemo_bold"
+                android:text="@{leaveApprovalItem.tvEndDate}"
+                android:textColor="@color/date_color"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/tvEndYear"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/guide_line_left"
+                app:layout_constraintTop_toBottomOf="@+id/tvEnd" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvStartYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:text="@{leaveApprovalItem.tvYear}"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guide_line_right"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvStartDate" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvEndYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:text="@{leaveApprovalItem.tvYear}"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/guide_line_left"
+                app:layout_constraintTop_toBottomOf="@+id/tvEndDate" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/approved_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:paddingStart="@dimen/_15sdp"
+            android:background="@color/background"
+            app:layout_constraintBottom_toBottomOf="@+id/rejected_btn"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_centre"
+            app:layout_constraintStart_toStartOf="@+id/guideline_start"
+            app:layout_constraintTop_toTopOf="@+id/rejected_btn" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/rejected_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:paddingStart="@dimen/_15sdp"
+            android:background="@color/background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+            app:layout_constraintStart_toStartOf="@+id/guideline_centre"
+            app:layout_constraintTop_toBottomOf="@+id/constraint_leave" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

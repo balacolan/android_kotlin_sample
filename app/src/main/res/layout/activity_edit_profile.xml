@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="profileVM"
+            type="com.colan.kindercare.ui.modules.common.profile.ProfileVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/custom_toolbar_edit_profile"
+            bind:layout_editor_absoluteX="0dp"
+            bind:layout_editor_absoluteY="0dp"
+            bind:profileVM="@{profileVM}"/>
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/circle_iv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_circle_bg"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+            app:layout_constraintRight_toRightOf="@+id/guideline_right"/>
+
+        <ScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@+id/constraint_bottom"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+            app:layout_constraintRight_toRightOf="@+id/guideline_right"
+            app:layout_constraintTop_toBottomOf="@+id/circle_iv">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/_10sdp">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_centre_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent=".50" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/profile_name_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bwsurcodemo_regular"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/profile_name"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/profile_name_et"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/selector_edittext"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:hint="@string/profile_name"
+                        android:text="@={profileVM.mUserName}"
+                        android:paddingStart="@dimen/_20sdp"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/hintColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_name_label" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/email_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_regular"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/email"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_name_et" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/email_et"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/selector_edittext"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:hint="@string/email"
+                        android:text="@={profileVM.mUserMailId}"
+                        android:paddingStart="@dimen/_20sdp"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/hintColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/email_label"
+                        bind:ignore="RtlSymmetry" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/contact_number_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_regular"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/contact_number"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/email_et" />
+
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/contact_number_et"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/selector_edittext"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:hint="@string/contact_number"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:paddingStart="@dimen/_20sdp"
+                        android:text="@={profileVM.mUserMobileNumber}"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/hintColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/contact_number_label" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/date_of_birth_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_regular"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/date_of_birth"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/contact_number_et" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/reave_for_leave_et"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/selector_edittext"
+                        android:drawableEnd="@drawable/ic_calendar"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:hint="@string/dob"
+                        android:paddingStart="@dimen/_20sdp"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:text="@={profileVM.mUserDOB}"
+                        android:onClick="onClickView"
+                        android:focusableInTouchMode="false"
+                        android:paddingEnd="@dimen/_20sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/hintColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/date_of_birth_label" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/address_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_regular"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/address"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBottom_toTopOf="@+id/address_et"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/reave_for_leave_et" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/address_et"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/selector_edittext"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:gravity="start"
+                        android:hint="@string/address"
+                        android:text="@={profileVM.mUserAddress}"
+                        android:paddingStart="@dimen/_20sdp"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/hintColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/address_label" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </ScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_bottom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_shape"
+            android:elevation="@dimen/_6sdp"
+            android:padding="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scroll_view">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_centre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".50" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/cancel_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/btn_red_bg"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                android:text="@string/cancel"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:onClick="@{(view)->profileVM.onClickAction(view)}"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@+id/guideline_centre"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/submit_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/btn_green_bg"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                android:text="@string/update"
+                android:onClick="@{(view)->profileVM.onClickAction(view)}"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_centre"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

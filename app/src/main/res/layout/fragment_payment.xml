@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <data>
+        <variable
+            name="paymentVM"
+            type="com.colan.kindercare.ui.modules.parent.payment.PaymentVM" />
+
+        <import type="android.view.View" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:text="@string/hello_blank_fragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_line_top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.02" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_line_left"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_13sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_line_right"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_13sdp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/selector_cv"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@color/white"
+            android:elevation="@dimen/_2sdp"
+            app:cardCornerRadius="@dimen/_18sdp"
+            app:layout_constraintLeft_toRightOf="@+id/guide_line_left"
+            app:layout_constraintRight_toLeftOf="@+id/guide_line_right"
+            app:layout_constraintTop_toBottomOf="@+id/guide_line_top" />
+
+        <RadioGroup
+            android:id="@+id/radio_gb"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:elevation="@dimen/_10sdp"
+            android:onCheckedChanged="@{paymentVM.onRbChanged}"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintBottom_toBottomOf="@+id/selector_cv"
+            app:layout_constraintLeft_toLeftOf="@+id/selector_cv"
+            app:layout_constraintRight_toRightOf="@+id/selector_cv"
+            app:layout_constraintTop_toTopOf="@+id/selector_cv">
+
+            <RadioButton
+                android:id="@+id/invoice_rb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/radio_flat_selector"
+                android:button="@android:color/transparent"
+                android:checked="@{paymentVM.mInvoiceRb}"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:text="@string/invoice"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@drawable/radio_flat_text_selector"
+                android:textSize="@dimen/_12ssp" />
+
+            <RadioButton
+                android:id="@+id/transcation_rb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/radio_flat_selector"
+                android:button="@android:color/transparent"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:text="@string/transcation"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@drawable/radio_flat_text_selector"
+                android:textSize="@dimen/_12ssp" />
+        </RadioGroup>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/paymentContainer_fl"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radio_gb" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

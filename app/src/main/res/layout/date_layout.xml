@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+    <View
+        android:id="@+id/date_bg_view"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginStart="@dimen/_3sdp"
+        android:layout_marginEnd="@dimen/_3sdp"
+        android:background="@drawable/round_rectangle_background_yellow"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/date_previous_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:src="@drawable/ic_left_white"
+        app:layout_constraintBottom_toBottomOf="@+id/date_bg_view"
+        app:layout_constraintLeft_toLeftOf="@+id/date_bg_view"
+        app:layout_constraintTop_toTopOf="@+id/date_bg_view" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_cal_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_calender_white"
+        android:drawablePadding="@dimen/_10sdp"
+        android:fontFamily="@font/bwsurcodemo_medium"
+        android:text="@string/test_date"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintBottom_toBottomOf="@+id/date_bg_view"
+        app:layout_constraintLeft_toLeftOf="@+id/date_previous_iv"
+        app:layout_constraintRight_toRightOf="@+id/date_next_iv"
+        app:layout_constraintTop_toTopOf="@+id/date_bg_view" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/date_next_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:src="@drawable/ic_right_black"
+        app:layout_constraintBottom_toBottomOf="@+id/date_bg_view"
+        app:layout_constraintRight_toRightOf="@+id/date_bg_view"
+        app:layout_constraintTop_toTopOf="@+id/date_bg_view" />
+
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:background="@color/veiw_grey"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date_bg_view" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

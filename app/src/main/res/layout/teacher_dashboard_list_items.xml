@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <data>
+        <variable
+            name="teacherDashboardVM"
+            type="com.colan.kindercare.ui.modules.teacher.TeacherDashboardVM" />
+
+        <import type="android.view.View" />
+    </data>
+<com.google.android.material.card.MaterialCardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_10sdp"
+    app:cardCornerRadius="@dimen/_5sdp"
+    app:cardElevation="@dimen/_5sdp"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/header_title_tv"
+            android:layout_width="0dp"
+            android:textAlignment="center"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_12ssp"
+            android:fontFamily="@font/bwsurcodemo_medium"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.colan.kindercare.ui.cusome_ui.progress.ProgressWheel
+            android:id="@+id/wheelprogress"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
+            app:barWidth="17dp"
+            app:countText="931,199"
+            app:countTextColor="@android:color/black"
+            app:countTextSize="20sp"
+            app:defTextColor="@android:color/black"
+            app:defTextSize="10sp"
+            app:definitionText="Steps"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header_title_tv"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:marginBtwText="15dp"
+            app:percentage="90"
+            app:progressColor="#64b324" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.colan.kindercare.R" />
+
+        <variable
+            name="view"
+            type="android.view.View" />
+
+        <variable
+            name="studentItem"
+            type="com.colan.kindercare.data.model.StudentModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_light_grey_bg"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/_5sdp">
+
+        <TextView
+            android:id="@+id/student_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bwsurcodemo_bold"
+            android:padding="@dimen/_10sdp"
+            android:gravity="start|center"
+            android:text="@{studentItem.mStudentName}"
+            android:textColor="@color/solid_black"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="messageVM"
+            type="com.colan.kindercare.ui.modules.common.message.MessageVM" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_line_center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_line_left"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_13sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_line_right"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_13sdp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:id="@+id/top_view"
+            android:visibility="@{messageVM.isSuperAdmin()?View.VISIBLE:View.GONE}"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="@dimen/_25sdp"/>
+
+        <FrameLayout
+            android:id="@+id/msg_container"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_view"
+            app:layout_constraintLeft_toRightOf="@+id/side_memn_layout"
+            app:layout_constraintRight_toLeftOf="@+id/guide_line_right" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/side_memn_layout"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:visibility="@{messageVM.isParent()?View.GONE:View.VISIBLE}"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:scrollbars="none"
+            android:background="@drawable/rectangle_yellow"
+            app:layout_constraintTop_toBottomOf="@+id/top_view"
+            app:layout_constraintRight_toLeftOf="@+id/msg_container"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+
+            <!--        <LinearLayout
+                        android:orientation="vertical"
+                        android:weightSum="5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">-->
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1.2"
+                android:id="@+id/inbox_layout"
+                android:background="@{messageVM.isInoboxClicked()?@drawable/ic_msg_selection:null}"
+                android:onClick="@{(view) -> messageVM.onClickInbox(view)}"
+                android:layout_height="0dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="@={messageVM.unReadMsgCount}"
+                    android:visibility="@{messageVM.unReadMsgCount.equals(`0`)?View.INVISIBLE:View.VISIBLE}"
+                    android:textColor="@{messageVM.isInoboxClicked()? @color/white:@color/colorPrimary}"
+                    android:textAlignment="center"
+                    android:background="@{messageVM.isInoboxClicked()?@drawable/notification_num_indicator_bg:@drawable/notificaton_indicator_white_bg}"
+                    android:layout_gravity="end"
+
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_10ssp"
+                    android:fontFamily="@font/bwsurcodemo_medium"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@{messageVM.isInoboxClicked()?@drawable/ic_msg_inbox_selected:@drawable/ic_msg_inbox}"
+                    android:layout_height="wrap_content"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="@string/inbox"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/_12ssp"
+                    android:fontFamily="@font/bwsurcodemo_medium"
+                    android:textColor="@{messageVM.isInoboxClicked()?@color/date_picker_bg:@color/colorWhite}"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/sent_layout"
+                android:onClick="@{(view) -> messageVM.onClickSent(view)}"
+                android:background="@{messageVM.isSentClicked()?@drawable/ic_msg_selection:null}"
+                android:layout_weight="1"
+                android:padding="@dimen/_3sdp"
+                android:layout_height="0dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:src="@{messageVM.isSentClicked()?@drawable/ic_msg_sent_selected:@drawable/ic_msg_sent}"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="@string/sent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/_12ssp"
+                    android:fontFamily="@font/bwsurcodemo_medium"
+                    android:textColor="@{messageVM.isSentClicked()?@color/date_picker_bg:@color/colorWhite}"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/draft_layout"
+                android:onClick="@{(view) -> messageVM.onClickDraft(view)}"
+                android:background="@{messageVM.isDraftClicked()?@drawable/ic_msg_selection:null}"
+                android:layout_weight="1"
+                android:padding="@dimen/_3sdp"
+                android:layout_height="0dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:src="@{messageVM.isDraftClicked()?@drawable/ic_msg_draft_selected:@drawable/ic_msg_draft}"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="@string/draft"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/_12ssp"
+                    android:fontFamily="@font/bwsurcodemo_medium"
+                    android:textColor="@{messageVM.isDraftClicked()?@color/date_picker_bg:@color/colorWhite}"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/trash_layout"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:onClick="@{(view) -> messageVM.onClickTrash(view)}"
+                android:background="@{messageVM.isTrashClicked()?@drawable/ic_msg_selection:null}"
+                android:layout_weight="1"
+                android:padding="@dimen/_3sdp"
+                android:layout_height="0dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:src="@{messageVM.isTrashClicked()?@drawable/ic_msg_trash_selected:@drawable/ic_msg_trash}"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="@string/trash"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/_12ssp"
+                    android:textColor="@{messageVM.isTrashClicked()?@color/date_picker_bg:@color/colorWhite}"
+                    android:fontFamily="@font/bwsurcodemo_medium"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:background="@color/colorWhite"
+                android:layout_height="1dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/compose_layout"
+                android:onClick="@{(view) -> messageVM.onClickCompose(view)}"
+                android:background="@{messageVM.isComposeClicked()?@drawable/ic_msg_selection:null}"
+                android:layout_weight="1"
+                android:padding="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_height="0dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:src="@{messageVM.isComposeClicked()?@drawable/ic_msg_compose_selected:@drawable/ic_msg_compose}"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="@string/compose"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_gravity="center"
+                    android:ems="4"
+                    android:textAlignment="center"
+                    android:textColor="@{messageVM.isComposeClicked()?@color/date_picker_bg:@color/colorWhite}"
+                    android:textSize="@dimen/_12ssp"
+                    android:fontFamily="@font/bwsurcodemo_medium"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+            <!--
+                </LinearLayout>-->
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

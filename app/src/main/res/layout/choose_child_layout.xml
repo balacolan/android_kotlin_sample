@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="MissingDefaultResource">
+
+    <data>
+
+        <variable
+            name="dashboardVM"
+            type="com.colan.kindercare.ui.dashboard.DashboardVM"/>
+
+        <import type="android.view.View"/>
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:textSize="@dimen/_14ssp"
+        android:fontFamily="@font/bwsurcodemo_bold"
+        android:text="@string/choose_child_profile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <View
+        app:layout_constraintTop_toBottomOf="@id/textView3"
+        android:layout_width="match_parent"
+        android:id="@+id/line_view"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:background="#DFDFDF"
+        android:layout_height="1dp"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/childer_rv"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/line_view"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@+id/childer_rv"
+        android:layout_width="wrap_content"
+        android:id="@+id/add_more_child_tv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/bwsurcodemo_medium"
+        android:textSize="@dimen/_14ssp"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:textAlignment="center"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:onClick="@{(view)-> dashboardVM.onClickAction(view)}"
+        android:text="@string/add_more_child"
+        android:layout_height="wrap_content"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

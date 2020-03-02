@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="enrollmentEnquiryVM"
+            type="com.colan.kindercare.ui.modules.admin.enroll.EnrollmentEnquiryVM" />
+
+        <import type="android.view.View" />
+    </data>
+
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/custom_toolbar" />
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="0dp">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvFamilyDetail"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_4sdp"
+            android:background="@android:color/white"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardElevation="@dimen/_2sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/_10sdp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/_10sdp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_centre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.45" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/leave_days_label"
+                    style="@style/textStyleRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/bg_corner_top"
+                    android:text="@string/child_name_label"
+                    app:layout_constraintBottom_toBottomOf="@id/leave_days_tv"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                    app:layout_constraintTop_toTopOf="@id/leave_days_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/leave_days_tv"
+                    style="@style/textStyleMedium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@={enrollmentEnquiryVM.childName}"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                    app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/leave_from_label"
+                    style="@style/textStyleRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/text_bg"
+                    android:text="@string/child_age"
+                    app:layout_constraintBottom_toBottomOf="@id/leave_from_tv"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                    app:layout_constraintTop_toTopOf="@id/leave_from_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/leave_from_tv"
+                    style="@style/textStyleMedium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{enrollmentEnquiryVM.childAge}"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                    app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                    app:layout_constraintTop_toBottomOf="@id/leave_days_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/leave_till_label"
+                    style="@style/textStyleRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/text_bg"
+                    android:text="@string/date_of_birth"
+                    app:layout_constraintBottom_toBottomOf="@id/leave_till_tv"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                    app:layout_constraintTop_toTopOf="@id/leave_till_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/leave_till_tv"
+                    style="@style/textStyleMedium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{enrollmentEnquiryVM.childDob}"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                    app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                    app:layout_constraintTop_toBottomOf="@id/leave_from_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/leave_type_label"
+                    style="@style/textStyleRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/text_bg"
+                    android:text="@string/class_name"
+                    app:layout_constraintBottom_toBottomOf="@id/leave_type_tv"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                    app:layout_constraintTop_toTopOf="@id/leave_type_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/leave_type_tv"
+                    style="@style/textStyleMedium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="UKG"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                    app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                    app:layout_constraintTop_toBottomOf="@id/leave_till_tv" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/reason_for_leave_label"
+                    style="@style/textStyleRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/text_bg"
+                    android:text="@{enrollmentEnquiryVM.isSuperAdmin()?`Parent's Name`: enrollmentEnquiryVM.childParentName}"
+                    app:layout_constraintBottom_toBottomOf="@id/reason_for_leave_tv"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                    app:layout_constraintTop_toTopOf="@id/reason_for_leave_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/reason_for_leave_tv"
+                    style="@style/textStyleMedium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{enrollmentEnquiryVM.childParentName}"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                    app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                    app:layout_constraintTop_toBottomOf="@id/leave_type_tv" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/mother_name_label"
+                    style="@style/textStyleRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/text_bg"
+                    android:text="@string/mother_name"
+                    app:layout_constraintBottom_toBottomOf="@id/mother_name_tv"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                    app:layout_constraintTop_toTopOf="@id/mother_name_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/mother_name_tv"
+                    style="@style/textStyleMedium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{enrollmentEnquiryVM.childMotherName}"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                    app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                    app:layout_constraintTop_toBottomOf="@id/reason_for_leave_tv" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/emergency_contact_label"
+                    style="@style/textStyleRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/text_bg"
+                    android:text="@{enrollmentEnquiryVM.isSuperAdmin()?`Parent's Contact`: enrollmentEnquiryVM.childParentMobile}"
+                    app:layout_constraintBottom_toBottomOf="@id/emergency_contact_tv"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                    app:layout_constraintTop_toTopOf="@id/emergency_contact_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/emergency_contact_tv"
+                    style="@style/textStyleForNumbers"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{enrollmentEnquiryVM.childParentMobile}"
+                    android:textColor="@color/colorBlack"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                    app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                    app:layout_constraintTop_toBottomOf="@id/mother_name_tv" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/email_label"
+                    style="@style/textStyleRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/text_bg"
+                    android:text="@{enrollmentEnquiryVM.isSuperAdmin()?`Parent's Email`:@string/email}"
+                    app:layout_constraintBottom_toBottomOf="@id/email_tv"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                    app:layout_constraintTop_toTopOf="@id/email_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/email_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:fontFamily="@font/bwsurcodemo_medium"
+                    android:paddingStart="@dimen/_8sdp"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:text="@{enrollmentEnquiryVM.childParentEmail}"
+                    android:textColor="@color/solid_black"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                    app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                    app:layout_constraintTop_toBottomOf="@id/emergency_contact_tv" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/purpose_label"
+                    style="@style/textStyleRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/text_bg"
+                    android:text="@string/purpose"
+                    app:layout_constraintBottom_toBottomOf="@id/purpose_tv"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                    app:layout_constraintTop_toTopOf="@id/purpose_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/purpose_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:fontFamily="@font/bwsurcodemo_medium"
+                    android:paddingStart="@dimen/_8sdp"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:text="@{enrollmentEnquiryVM.childPurpose}"
+                    android:textColor="@color/solid_black"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                    app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                    app:layout_constraintTop_toBottomOf="@id/email_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/status_label"
+                    style="@style/textStyleRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/bg_corner_bottom"
+                    android:text="@string/status"
+                    app:layout_constraintBottom_toBottomOf="@id/status_tv"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                    app:layout_constraintTop_toTopOf="@id/status_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/status_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:fontFamily="@font/bwsurcodemo_medium"
+                    android:paddingStart="@dimen/_8sdp"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:text="@{enrollmentEnquiryVM.childStatus}"
+                    android:textColor="@{enrollmentEnquiryVM.childStatus.equals(`Accepted`) ? @color/btn_green : enrollmentEnquiryVM.childStatus.equals(`Pending`) ? @color/date_picker_bg : @color/red }"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                    app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                    app:layout_constraintTop_toBottomOf="@id/purpose_tv" />
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/edit_enquiry"
+                    android:layout_width="@dimen/_155sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_40sdp"
+                    android:background="@{enrollmentEnquiryVM.isSuperAdmin?@drawable/btn_red_bg:@drawable/btn_yellow_bg}"
+                    android:fontFamily="@font/bwsurcodemo_medium"
+                    android:onClick="@{(view)-> enrollmentEnquiryVM.onClickAction(view)}"
+                    android:text="@{enrollmentEnquiryVM.isSuperAdmin?@string/delete_enquiry:@string/edit_enquiry}"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_16ssp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/status_tv"
+                    app:layout_constraintVertical_bias="0.371" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/group2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{enrollmentEnquiryVM.isSuperAdmin()?View.GONE:View.VISIBLE}"
+                    app:constraint_referenced_ids="leave_till_label,leave_till_tv,leave_type_tv,leave_type_label,mother_name_label,mother_name_tv,purpose_label,purpose_tv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

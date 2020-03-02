@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#E5E5E5"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="8dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="24dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="8dp" />
+
+
+    <View
+        android:layout_width="0dp"
+        android:id="@+id/date_pic_bg_view"
+        android:visibility="visible"
+        android:layout_marginTop="@dimen/_7sdp"
+        app:layout_constraintTop_toBottomOf="@+id/date_tv"
+        android:background="@drawable/rectangle_border_bottom_white"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+        app:layout_constraintRight_toRightOf="@+id/guideline_right"
+        android:layout_height="@dimen/_50sdp"/>
+
+    <View
+        android:id="@+id/date_bg_view"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@drawable/rectangle_backgroud_yellow"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+        app:layout_constraintRight_toRightOf="@+id/guideline_right"
+        app:layout_constraintTop_toTopOf="@+id/guideline_top" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/date_previous_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:src="@drawable/ic_left_white"
+        app:layout_constraintBottom_toBottomOf="@+id/date_bg_view"
+        app:layout_constraintLeft_toLeftOf="@+id/date_bg_view"
+        app:layout_constraintTop_toTopOf="@+id/date_bg_view" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/date_tv"
+        android:drawableStart="@drawable/ic_calender_white"
+        android:drawablePadding="@dimen/_10sdp"
+        android:fontFamily="@font/bwsurcodemo_medium"
+        android:text="@string/test_date"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintBottom_toBottomOf="@+id/date_bg_view"
+        app:layout_constraintLeft_toLeftOf="@+id/date_previous_iv"
+        app:layout_constraintRight_toRightOf="@+id/date_next_iv"
+        app:layout_constraintTop_toTopOf="@+id/date_bg_view" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/date_next_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:src="@drawable/ic_right_black"
+        app:layout_constraintBottom_toBottomOf="@+id/date_bg_view"
+        app:layout_constraintRight_toRightOf="@+id/date_bg_view"
+        app:layout_constraintTop_toTopOf="@+id/date_bg_view" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

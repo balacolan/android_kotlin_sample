@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_4sdp"
+    android:background="@drawable/circle_shape"
+    android:padding="@dimen/_10sdp"
+    app:layout_constraintTop_toBottomOf="@+id/guideline_bottom_layout">
+
+
+
+    <Button
+        android:id="@+id/sign_in_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_green"
+        android:drawableStart="@drawable/ic_sign_in"
+        android:drawablePadding="@dimen/_5sdp"
+        android:ems="6"
+        android:fontFamily="@font/bwsurcodemo_medium"
+        android:padding="@dimen/_5sdp"
+        android:text="@string/signin"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/sign_out_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sign_out_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_blue"
+        android:drawableStart="@drawable/ic_sign_out"
+        android:drawablePadding="@dimen/_5sdp"
+        android:ems="6"
+        android:fontFamily="@font/bwsurcodemo_medium"
+        android:padding="@dimen/_5sdp"
+        android:text="@string/signout"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/absent_btn_2"
+        app:layout_constraintStart_toEndOf="@+id/sign_in_btn" />
+
+
+    <Button
+        android:id="@+id/absent_btn_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_red"
+        android:drawableStart="@drawable/ic_cancel"
+        android:drawablePadding="@dimen/_5sdp"
+        android:ems="6"
+        android:fontFamily="@font/bwsurcodemo_medium"
+        android:padding="@dimen/_5sdp"
+        android:text="@string/absent"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sign_out_btn" />
+</androidx.constraintlayout.widget.ConstraintLayout>

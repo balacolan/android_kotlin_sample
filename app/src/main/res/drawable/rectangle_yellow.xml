@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/listview_background_shape">
+    <stroke android:width="2dp"
+          android:color="@color/date_picker_bg" />
+
+    <corners
+        android:topLeftRadius="@dimen/_25sdp"
+        android:topRightRadius="@dimen/_25sdp"
+        android:bottomLeftRadius="@dimen/_25sdp"
+        android:bottomRightRadius="@dimen/_25sdp"
+        />
+    <solid android:color="@color/date_picker_bg" />
+</shape>

@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="paymentInvoiceDetailVM"
+            type="com.colan.kindercare.ui.modules.parent.payment.PaymentVM"/>
+        <import type="android.view.View" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/custom_toolbar" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll_sv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="@dimen/_6sdp"
+                app:cardElevation="@dimen/_2sdp"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/main_cs"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_10sdp">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.027638191" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_vertical_center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.5" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_bottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_centre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.4" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/invoice_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_8sdp"
+                        android:text="@string/invoice_id"
+                        android:textColor="@color/purpleColor"
+                        android:textSize="@dimen/_13ssp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/bwsurcodemo_medium"
+                        app:layout_constraintLeft_toRightOf="@+id/guideline_left"
+                        app:layout_constraintRight_toLeftOf="@+id/guideline_vertical_center"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/invoice_value_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_8sdp"
+                        android:text="#01254545454"
+                        android:textColor="@color/purpleColor"
+                        android:textSize="@dimen/_13ssp"
+                        app:layout_constraintLeft_toRightOf="@+id/guideline_vertical_center"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="0dp"
+                        android:layout_height="0.1dp"
+                        android:background="@color/veiw_grey"
+                        app:layout_constraintLeft_toRightOf="@+id/guideline_left"
+                        app:layout_constraintRight_toLeftOf="@+id/guideline_right"
+                        app:layout_constraintTop_toBottomOf="@+id/invoice_value_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/invoice_date_tv"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/bg_corner_top"
+                        android:text="@string/invoice_date"
+                        app:layout_constraintBottom_toBottomOf="@id/invoice_date_value_tv"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/invoice_date_value_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/invoice_date_value_tv"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="31/10/2019"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/fees_type_tv"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/text_bg"
+                        android:text="@string/fees_type"
+                        app:layout_constraintBottom_toBottomOf="@id/fees_type_value_tv"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/fees_type_value_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/fees_type_value_tv"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="School Fees"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/invoice_date_value_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/term_type_tv"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/text_bg"
+                        android:text="@string/term_type"
+                        app:layout_constraintBottom_toBottomOf="@id/term_type_value_tv"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/term_type_value_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/term_type_value_tv"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Partially"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/fees_type_value_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/term_tv"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/text_bg"
+                        android:text="@string/term"
+                        app:layout_constraintBottom_toBottomOf="@id/term_value_tv"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/term_value_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/term_value_tv"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="1st Term"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/term_type_value_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/total_amount_tv"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/text_bg"
+                        android:text="@string/total_amount"
+                        app:layout_constraintBottom_toBottomOf="@id/total_amount_value_tv"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/total_amount_value_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/total_amount_value_tv"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="₹ 9,000"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/term_value_tv" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/fees_tv"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/text_bg"
+                        android:text="@string/fees"
+                        app:layout_constraintBottom_toBottomOf="@id/fees_value_tv"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/fees_value_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/fees_value_tv"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="₹ 5,000"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/total_amount_value_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/status_tv"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/text_bg"
+                        android:text="@string/status"
+                        app:layout_constraintBottom_toBottomOf="@id/status_value_tv"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/status_value_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/status_value_tv"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{paymentInvoiceDetailVM.isPending ? @string/paid :@string/pending}"
+                        android:textColor="@{paymentInvoiceDetailVM.isPending ? @color/green: @color/date_picker_bg}"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/fees_value_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/paid_date_tv"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/text_bg"
+                        android:text="@string/paid_date"
+                        android:visibility="@{!paymentInvoiceDetailVM.isPending?View.GONE:View.VISIBLE}"
+                        app:layout_constraintBottom_toBottomOf="@id/paid_date_value_tv"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/paid_date_value_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/paid_date_value_tv"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="31/10/2019"
+                        android:visibility="@{!paymentInvoiceDetailVM.isPending?View.GONE:View.VISIBLE}"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/status_value_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/payment_mode_tv"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:visibility="@{!paymentInvoiceDetailVM.isPending?View.GONE:View.VISIBLE}"
+                        android:background="@color/text_bg"
+                        android:text="@string/payment_mode"
+                        app:layout_constraintBottom_toBottomOf="@+id/payment_mode_value_tv"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/payment_mode_value_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/payment_mode_value_tv"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Card"
+                        android:visibility="@{!paymentInvoiceDetailVM.isPending?View.GONE:View.VISIBLE}"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/paid_date_value_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/payee_name_tv"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/bg_corner_bottom"
+                        android:text="@string/payee_name"
+                        android:visibility="@{!paymentInvoiceDetailVM.isPending?View.GONE:View.VISIBLE}"
+                        app:layout_constraintBottom_toBottomOf="@+id/payee_name_value_tv"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/payee_name_value_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/payee_name_value_tv"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Chris Hemsworth"
+                        android:visibility="@{!paymentInvoiceDetailVM.isPending?View.GONE:View.VISIBLE}"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/payment_mode_value_tv" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/pay_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_20sdp"
+                        android:background="@drawable/rectangle_green"
+                        android:elevation="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:text="@string/download_invoice"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12ssp"
+                        android:visibility="@{!paymentInvoiceDetailVM.isPending?View.GONE:View.VISIBLE}"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@+id/guideline_left"
+                        app:layout_constraintTop_toBottomOf="@+id/payee_name_value_tv" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/download_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_20sdp"
+                        android:background="@drawable/rectangle_green"
+                        android:elevation="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:text="@string/make_to_pay"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12ssp"
+                        android:visibility="@{!paymentInvoiceDetailVM.isPending?View.VISIBLE:View.GONE}"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@+id/guideline_left"
+                        app:layout_constraintTop_toBottomOf="@+id/payee_name_value_tv" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

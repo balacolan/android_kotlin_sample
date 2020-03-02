@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="profileVM"
+            type="com.colan.kindercare.ui.modules.common.profile.ProfileVM" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/custom_toolbar_new"
+            bind:layout_editor_absoluteX="0dp"
+            bind:layout_editor_absoluteY="0dp"
+            bind:profileVM="@{profileVM}" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_left_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_right_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/circle_iv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_circle_bg"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_left_first"
+            app:layout_constraintRight_toRightOf="@+id/guideline_right_first"/>
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/guideline_bottom"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_left_first"
+            app:layout_constraintRight_toRightOf="@+id/guideline_right_first"
+            app:layout_constraintTop_toBottomOf="@+id/circle_iv">
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvFamilyDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="@dimen/_2sdp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_height="match_parent">
+
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="@dimen/_10sdp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="@dimen/_10sdp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_centre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="185dp" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/date_of_birth_label"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/bg_corner_top"
+                        android:text="@string/date_of_birth"
+                        app:layout_constraintBottom_toBottomOf="@id/date_of_birth_tv"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/date_of_birth_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/date_of_birth_tv"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="@={profileVM.mUserDOB}"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/gender_label"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/text_bg"
+                        android:text="@string/gender"
+                        app:layout_constraintBottom_toBottomOf="@id/gender_tv"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/gender_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/gender_tv"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@={profileVM.mUserGender}"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/date_of_birth_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/address_label"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/text_bg"
+                        android:text="@string/address"
+                        app:layout_constraintBottom_toBottomOf="@id/address_label_tv"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/address_label_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/address_label_tv"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@={profileVM.mUserAddress}"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/gender_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/password_label"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/bg_corner_bottom"
+                        android:text="@string/password"
+                        app:layout_constraintBottom_toBottomOf="@id/status_tv"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/password_tv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/password_tv"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:text="@={profileVM.mUserPassword}"
+                        android:inputType="textPassword"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/address_label_tv" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/status_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:paddingStart="@dimen/_8sdp"
+                        android:paddingBottom="@dimen/_5sdp"
+                        android:text="@string/change"
+                        android:textColor="@color/color_yellow"
+                        android:textSize="@dimen/_14ssp"
+                        android:onClick="@{(view)-> profileVM.onClickAction(view)}"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/password_tv" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/edit_profile_btn"
+                        android:layout_width="@dimen/_155sdp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_yellow_bg"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:onClick="@{(view)-> profileVM.onClickAction(view)}"
+                        android:text="@string/edit_profile"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_16ssp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/status_tv"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

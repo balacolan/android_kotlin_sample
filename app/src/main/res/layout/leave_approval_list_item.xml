@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+        <variable
+            name="leaveApprovalItem"
+            type="com.colan.kindercare.data.remote.data.response.leaveApproval.LeaveApprovalListResponse" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/leave_status_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_3sdp"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:cardElevation="@dimen/_1sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_4sdp">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineVertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".25" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_centre"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".50" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_start"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/_15sdp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_end"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/_15sdp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_hor_right_20_per"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent=".40" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/student_iv"
+                android:layout_width="@dimen/_42sdp"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:src="@drawable/ic_profile_pic"
+                app:civ_border_color="@color/colorGray"
+                app:civ_border_width="@dimen/_1sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                bind:customImageFromUrl="@{leaveApprovalItem.profile}" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/child_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                android:text="@={leaveApprovalItem.name}"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@+id/student_iv"
+                app:layout_constraintTop_toTopOf="@+id/student_iv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:text="@={leaveApprovalItem.requestedDate}"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/student_iv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/child_section_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                android:text="@={leaveApprovalItem.name}"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/student_iv"
+                app:layout_constraintLeft_toRightOf="@+id/student_iv"
+                app:layout_constraintTop_toBottomOf="@+id/child_name_tv" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivType"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/ic_medical_leave"
+                app:layout_constraintBottom_toBottomOf="@id/tvLeaveType"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvLeaveType" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLeaveType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:padding="@dimen/_5sdp"
+                android:text="@{leaveApprovalItem.reason}"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="@id/guideline_hor_right_20_per"
+                app:layout_constraintStart_toEndOf="@+id/ivType"
+                app:layout_constraintTop_toBottomOf="@+id/student_iv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:padding="@dimen/_5sdp"
+                android:textColor="@{leaveApprovalItem.status==2 ? @color/colorGreen:@color/red}"
+                android:text="@{leaveApprovalItem.status==2 ? @string/approved:@string/rejected}"
+                android:visibility="@{leaveApprovalItem.status==1?View.GONE:View.VISIBLE}"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="@id/tvLeaveType"
+                app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+                app:layout_constraintTop_toTopOf="@+id/tvLeaveType" />
+
+            <View
+                android:id="@+id/view_first"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_margin="@dimen/_4sdp"
+                android:background="@color/color_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/guideline_hor_right_20_per" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLeaveDate"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                android:gravity="center"
+                android:text="@{leaveApprovalItem.totDays.toString()+' '+@string/days}"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/constraint_leave"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/constraint_leave" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_leave"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/ic_pending_bg"
+                app:layout_constraintBottom_toTopOf="@+id/rejected_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/guidelineVertical"
+                app:layout_constraintTop_toBottomOf="@id/view_first">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guide_line_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".40" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guide_line_left"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".60" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bwsurcodemo_regular"
+                    android:text="@string/starts"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintBottom_toTopOf="@+id/tvStartDate"
+                    app:layout_constraintEnd_toStartOf="@+id/guide_line_right"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvEnd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bwsurcodemo_regular"
+                    android:text="@string/ends"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintBottom_toTopOf="@+id/tvEndDate"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/guide_line_left"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvStartDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_3sdp"
+                    android:fontFamily="@font/bwsurcodemo_bold"
+                    android:text="@{leaveApprovalItem.fromDate}"
+                    android:textAlignment="center"
+                    android:textColor="@color/date_color"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/tvStartYear"
+                    app:layout_constraintEnd_toStartOf="@+id/guide_line_right"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvStart" />
+
+                <View
+                    android:id="@+id/view_second"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/view_bg_color"
+                    app:layout_constraintBottom_toTopOf="@+id/tvStartYear"
+                    app:layout_constraintEnd_toStartOf="@+id/guide_line_left"
+                    app:layout_constraintStart_toEndOf="@+id/guide_line_right"
+                    app:layout_constraintTop_toBottomOf="@+id/tvStart" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvEndDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bwsurcodemo_bold"
+                    android:text="@{leaveApprovalItem.toDate}"
+                    android:textAlignment="center"
+                    android:textColor="@color/date_color"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/tvEndYear"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/guide_line_left"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEnd" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvStartYear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bwsurcodemo_regular"
+                    android:text="2020"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guide_line_right"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvStartDate" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvEndYear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bwsurcodemo_regular"
+                    android:text="2020"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/guide_line_left"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEndDate" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/approved_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/ic_approve_green"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/approve"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/rejected_btn"
+                app:layout_constraintEnd_toEndOf="@+id/guideline_centre"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                app:layout_constraintTop_toTopOf="@+id/rejected_btn" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/rejected_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/ic_reject_red"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/reject"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline_centre"
+                app:layout_constraintTop_toBottomOf="@+id/constraint_leave" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group3"
+                android:layout_width="wrap_content"
+                android:visibility="@{leaveApprovalItem.status==1?View.VISIBLE:View.GONE}"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="rejected_btn,approved_btn" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

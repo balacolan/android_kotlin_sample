@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="enrollmentEnquiryVM"
+            type="com.colan.kindercare.ui.modules.admin.enroll.EnrollmentEnquiryVM" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:orientation="vertical"
+        android:layout_width="@dimen/_120sdp"
+        app:cardElevation="@dimen/_5sdp"
+        android:layout_margin="@dimen/_3sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        android:layout_height="@dimen/_100sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:weightSum="10"
+            android:layout_height="match_parent">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:text="@{enrollmentEnquiryVM.childTotalCount}"
+                android:layout_weight="6"
+                android:textColor="@color/solid_black"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                android:textSize="@dimen/_12ssp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:layout_height="wrap_content" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:text="@string/total"
+                android:background="@color/enrollment_total"
+                android:layout_weight="4"
+                android:textColor="@color/white"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                android:textSize="@dimen/_12ssp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

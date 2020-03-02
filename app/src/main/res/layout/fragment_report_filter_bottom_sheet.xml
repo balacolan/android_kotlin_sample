@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_10sdp"
+    android:background="@drawable/circle_shape"
+    android:elevation="@dimen/_10sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/select_students_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_4sdp"
+            android:fontFamily="@font/bwsurcodemo_medium"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/filter_attendance_report"
+            android:textColor="@color/purpleColor"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/close_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@color/view_bg"
+            app:layout_constraintTop_toBottomOf="@+id/select_students_label" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/close_label"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/ic_close"
+            android:padding="@dimen/_8sdp"
+            android:textColor="@color/red"
+            android:textSize="@dimen/_18ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/select_students_label"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/select_students_label" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/filter_by_user_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/bwsurcodemo_medium"
+            android:text="@string/filter_by_user"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+
+        <RadioGroup
+            android:id="@+id/user_rg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            app:layout_constraintTop_toBottomOf="@+id/filter_by_user_label">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/student_rb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:button="@null"
+                android:drawableStart="@drawable/radio_btn_selection"
+                android:drawablePadding="@dimen/_10sdp"
+                android:layoutDirection="rtl"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/students"
+                android:textAllCaps="false"
+                android:textSize="@dimen/_12ssp"
+                android:theme="@style/RadioButtonStyle" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/teacher_rb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@android:color/transparent"
+                android:button="@null"
+                android:drawableStart="@drawable/radio_btn_selection"
+                android:drawablePadding="@dimen/_10sdp"
+                android:layoutDirection="rtl"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/teacher"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/_12ssp"
+                android:theme="@style/RadioButtonStyle" />
+
+        </RadioGroup>
+
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@color/view_bg"
+            app:layout_constraintTop_toBottomOf="@+id/user_rg" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/filter_by_class_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/bwsurcodemo_medium"
+            android:text="@string/filter_by_class"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+
+        <RadioGroup
+            android:id="@+id/class_rg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            app:layout_constraintTop_toBottomOf="@+id/filter_by_class_label">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/prekg_rb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@android:color/transparent"
+                android:button="@null"
+                android:drawableStart="@drawable/radio_btn_selection"
+                android:drawablePadding="@dimen/_10sdp"
+                android:layoutDirection="rtl"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/preKg"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/_12ssp"
+                android:theme="@style/RadioButtonStyle" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+               android:id="@+id/lkg_rb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@android:color/transparent"
+                android:button="@null"
+                android:drawableStart="@drawable/radio_btn_selection"
+                android:drawablePadding="@dimen/_10sdp"
+                android:layoutDirection="rtl"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/lkg"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/_12ssp"
+                android:theme="@style/RadioButtonStyle" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/ukg_rb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@android:color/transparent"
+                android:button="@null"
+                android:drawableStart="@drawable/radio_btn_selection"
+                android:drawablePadding="@dimen/_10sdp"
+                android:layoutDirection="rtl"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/ukg"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/_12ssp"
+                android:theme="@style/RadioButtonStyle" />
+
+        </RadioGroup>
+
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@color/view_bg"
+            app:layout_constraintTop_toBottomOf="@+id/class_rg" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/filter_by_section_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/bwsurcodemo_medium"
+            android:text="@string/filter_by_section"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+
+        <RadioGroup
+            android:id="@+id/section_rg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            app:layout_constraintTop_toBottomOf="@+id/filter_by_section_label">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/section_a_rb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@android:color/transparent"
+                android:button="@null"
+                android:drawableStart="@drawable/radio_btn_selection"
+                android:drawablePadding="@dimen/_10sdp"
+                android:layoutDirection="rtl"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/a_section"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/_12ssp"
+                android:theme="@style/RadioButtonStyle" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/section_b_rb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@android:color/transparent"
+                android:button="@null"
+                android:drawableStart="@drawable/radio_btn_selection"
+                android:drawablePadding="@dimen/_10sdp"
+                android:layoutDirection="rtl"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/b_section"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/_12ssp"
+                android:theme="@style/RadioButtonStyle" />
+
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/section_c_rb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@android:color/transparent"
+                android:button="@null"
+                android:drawableStart="@drawable/radio_btn_selection"
+                android:drawablePadding="@dimen/_10sdp"
+                android:layoutDirection="rtl"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/c_section"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/_12ssp"
+                android:theme="@style/RadioButtonStyle" />
+
+
+        </RadioGroup>
+
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@color/view_bg"
+            app:layout_constraintTop_toBottomOf="@+id/section_rg" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/filter_by_date_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/bwsurcodemo_medium"
+            android:text="@string/filter_by_date"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+
+        <!--<RadioGroup
+            android:layout_width="match_parent"
+            android:id="@+id/date_rg"
+            android:layout_marginStart="@dimen/_5sdp"
+            app:layout_constraintTop_toBottomOf="@+id/filter_by_date_label"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layoutDirection="rtl"
+                android:textAlignment="textStart"
+                android:layout_gravity="start"
+                android:text="@string/daily"
+                android:drawableStart="@drawable/radio_btn_selection"
+                android:drawablePadding="@dimen/_10sdp"
+                android:background="@android:color/transparent"
+                android:button="@null"
+                android:padding="@dimen/_8sdp"
+                android:theme="@style/RadioButtonStyle"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layoutDirection="rtl"
+                android:background="@android:color/transparent"
+                android:textAlignment="textStart"
+                android:layout_gravity="start"
+                android:theme="@style/RadioButtonStyle"
+                android:text="@string/monthly"
+                android:drawableStart="@drawable/radio_btn_selection"
+                android:drawablePadding="@dimen/_10sdp"
+                android:button="@null"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_12ssp" />
+
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layoutDirection="rtl"
+                android:textAlignment="textStart"
+                android:background="@android:color/transparent"
+                android:layout_gravity="start"
+                android:theme="@style/RadioButtonStyle"
+                android:text="@string/yearly"
+                android:drawableStart="@drawable/radio_btn_selection"
+                android:drawablePadding="@dimen/_10sdp"
+                android:button="@null"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_12ssp" />
+
+
+        </RadioGroup>
+
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/month_sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/bg_dropdown"
+            android:drawableEnd="@drawable/ic_calendar"
+            android:drawablePadding="@dimen/_10sdp"
+            android:entries="@array/month_array"
+            android:fontFamily="@font/bwsurcodemo_medium"
+            android:hint="@string/dob"
+            android:padding="@dimen/_10sdp"
+            android:prompt="@string/gender_prompt"
+            android:textColor="@color/textColor"
+            android:textColorHint="@color/hintColor"
+            android:textSize="@dimen/_12ssp"
+            android:overlapAnchor="false"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_margin="@dimen/_10sdp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date_rg" />-->
+        <LinearLayout
+            android:id="@+id/linear_lay_dates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/apply_btn"
+            app:layout_constraintTop_toBottomOf="@id/filter_by_date_label">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFromDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/from_date"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_12ssp"
+
+                />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etFromDate"
+                style="@style/Widget.AppCompat.EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/selector_edittext"
+                android:drawableEnd="@drawable/ic_calendar"
+                android:focusableInTouchMode="false"
+                android:hint="@string/select_from_date"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvToDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/to_date"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etToDate"
+                style="@style/Widget.AppCompat.EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/selector_edittext"
+                android:drawableEnd="@drawable/ic_calendar"
+                android:focusableInTouchMode="false"
+                android:hint="@string/select_to_date"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_12ssp" />
+        </LinearLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/apply_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/rectangle_green"
+            android:ems="8"
+            android:gravity="center"
+            android:text="@string/apply"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linear_lay_dates" />
+
+        <TextView
+            android:id="@+id/textView37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/bwsurcodemo_medium"
+            android:text="@string/clear_all"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/apply_btn"
+            app:layout_constraintStart_toEndOf="@+id/apply_btn"
+            app:layout_constraintTop_toTopOf="@+id/apply_btn" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

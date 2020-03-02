@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource">
+
+    <data>
+
+        <variable
+            name="allActivityVM"
+            type="com.colan.kindercare.ui.dashboard.fragments.all_activity.AllActivityViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_6sdp"
+        tools:context=".ui.dashboard.fragments.all_activity.photos.PhotosFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_10sdp">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="8dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="24dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="8dp" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bwsurcodemo_bold"
+                android:text="@string/class_room"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/view"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                app:layout_constraintTop_toTopOf="@+id/guideline_top" />
+
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/veiw_grey"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                app:layout_constraintRight_toRightOf="@+id/guideline_right"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+            <TextView
+                android:id="@+id/title_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                android:text="@string/title"
+                android:textColor="@color/desctextColor"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <TextView
+                android:id="@+id/title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="@font/bwsurcodemo_book"
+                android:text="@string/test_title"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@+id/title_label" />
+
+            <TextView
+                android:id="@+id/category_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                android:text="@string/category"
+                android:textColor="@color/desctextColor"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@+id/title_tv" />
+
+            <TextView
+                android:id="@+id/category_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="@font/bwsurcodemo_book"
+                android:text="@string/test_category"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@+id/category_label" />
+
+
+            <TextView
+                android:id="@+id/desc_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                android:text="@string/description"
+                android:textColor="@color/desctextColor"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@+id/category_tv" />
+
+            <TextView
+                android:id="@+id/desc_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="@font/bwsurcodemo_book"
+                android:text="@string/test_desc"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@+id/desc_label" />
+
+            <TextView
+                android:id="@+id/milestone_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                android:text="@string/milestone"
+                android:textColor="@color/desctextColor"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@+id/desc_tv" />
+
+            <TextView
+                android:id="@+id/milestone_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="@font/bwsurcodemo_book"
+                android:text="@string/test_category"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@+id/milestone_label" />
+
+            <TextView
+                android:id="@+id/duration_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                android:text="@string/milestone"
+                android:textColor="@color/desctextColor"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@+id/milestone_tv" />
+
+            <TextView
+                android:id="@+id/duration_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="@font/bwsurcodemo_book"
+                android:text="@string/test_duration"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@+id/duration_label" />
+
+
+            <include
+                layout="@layout/attachment_layout"
+                android:id="@+id/attachment_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                app:layout_constraintRight_toRightOf="@+id/guideline_right"
+                app:layout_constraintTop_toBottomOf="@+id/duration_tv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

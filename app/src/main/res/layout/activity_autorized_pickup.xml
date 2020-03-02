@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="familyInformationVM"
+            type="com.colan.kindercare.ui.modules.parent.familyinformation.FamilyInformationVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/custom_toolbar" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_6sdp"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guide_line_left"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guide_line_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_bottom_second"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_end="@dimen/_15sdp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvAddPickupPerson"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bwsurcodemo_bold"
+                    android:padding="@dimen/_5sdp"
+                    android:text="@string/add_pickup_person"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/line_view"
+                    app:layout_constraintStart_toStartOf="@+id/guide_line_left"
+                    app:layout_constraintTop_toTopOf="@+id/guideline_top" />
+
+
+                <View
+                    android:id="@+id/line_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:background="@color/veiw_grey"
+                    app:layout_constraintBottom_toTopOf="@+id/tvPickupPersonName"
+                    app:layout_constraintEnd_toEndOf="@+id/guide_line_right"
+                    app:layout_constraintStart_toStartOf="@+id/guide_line_left"
+                    app:layout_constraintTop_toBottomOf="@id/tvAddPickupPerson" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvPickupPersonName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bwsurcodemo_regular"
+                    android:text="@string/pickup_person_name"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/_14ssp"
+                    android:layout_margin="@dimen/_5sdp"
+                    app:layout_constraintBottom_toTopOf="@+id/txt_pickup_person_name"
+                    app:layout_constraintStart_toStartOf="@+id/guide_line_left"
+                    app:layout_constraintTop_toBottomOf="@id/line_view" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/txt_pickup_person_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/selector_edittext"
+                    android:fontFamily="@font/bwsurcodemo_medium"
+                    android:hint="@string/pickup_person_name"
+                    android:paddingStart="@dimen/_20sdp"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:textColor="@color/textColor"
+                    android:elevation="@dimen/_5sdp"
+                    android:textColorHint="@color/hintColor"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintBottom_toTopOf="@+id/tvRelationShip"
+                    app:layout_constraintLeft_toLeftOf="@+id/guide_line_left"
+                    app:layout_constraintRight_toRightOf="@+id/guide_line_right"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPickupPersonName" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvRelationShip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bwsurcodemo_regular"
+                    android:layout_margin="@dimen/_5sdp"                    android:text="@string/relationship"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintBottom_toTopOf="@+id/txt_relationship"
+                    app:layout_constraintStart_toStartOf="@+id/guide_line_left"
+                    app:layout_constraintTop_toBottomOf="@id/txt_pickup_person_name" />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/txt_relationship"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:elevation="@dimen/_5sdp"
+                    android:paddingStart="@dimen/_20sdp"
+                    android:entries="@array/relationship_arrays"
+                    android:background="@{familyInformationVM.hasSpinnerFocused?@drawable/bg_dropdown_focused:@drawable/bg_dropdown}"
+                    android:overlapAnchor="false"
+                    app:layout_constraintBottom_toTopOf="@+id/tvContactNumber"
+                    app:layout_constraintLeft_toLeftOf="@+id/guide_line_left"
+                    app:layout_constraintRight_toRightOf="@+id/guide_line_right"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRelationShip" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvContactNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bwsurcodemo_regular"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:text="@string/contact_number"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintBottom_toTopOf="@+id/txt_contact_number"
+                    app:layout_constraintStart_toStartOf="@+id/guide_line_left"
+                    app:layout_constraintTop_toBottomOf="@id/txt_relationship" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/txt_contact_number"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/selector_edittext"
+                    android:fontFamily="@font/bwsurcodemo_medium"
+                    android:hint="@string/enter_contact_number"
+                    android:paddingStart="@dimen/_20sdp"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp"                    android:textColor="@color/textColor"
+                    android:textColorHint="@color/hintColor"
+                    android:textSize="@dimen/_12sdp"
+                    android:elevation="@dimen/_5sdp"
+                    app:layout_constraintBottom_toTopOf="@+id/space"
+                    app:layout_constraintLeft_toLeftOf="@+id/guide_line_left"
+                    app:layout_constraintRight_toRightOf="@+id/guide_line_right"
+                    app:layout_constraintTop_toBottomOf="@+id/tvContactNumber" />
+
+                <Space
+                    android:id="@+id/space"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_20sdp"
+                    app:layout_constraintLeft_toLeftOf="@+id/guide_line_left"
+                    app:layout_constraintRight_toRightOf="@+id/guide_line_right"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_contact_number" />
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnCancel"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/btn_grey_bg"
+                    android:fontFamily="@font/bwsurcodemo_medium"
+                    android:text="@string/cancel"
+                    android:textSize="@dimen/_14ssp"
+                    android:textColor="@color/text_color_grey"
+                    app:layout_constraintBottom_toBottomOf="@+id/guideline_bottom_second"
+                    app:layout_constraintEnd_toStartOf="@+id/btnSubmit"
+                    app:layout_constraintStart_toStartOf="@+id/guide_line_left"
+                    app:layout_constraintTop_toBottomOf="@id/space" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSubmit"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/btn_green_bg"
+                    android:fontFamily="@font/bwsurcodemo_medium"
+                    android:text="@string/submit"
+                    android:textSize="@dimen/_14ssp"
+                    android:textColor="@color/colorWhite"
+                    app:layout_constraintBottom_toBottomOf="@+id/guideline_bottom_second"
+                    app:layout_constraintEnd_toEndOf="@+id/guide_line_right"
+                    app:layout_constraintStart_toEndOf="@+id/btnCancel"
+                    app:layout_constraintTop_toBottomOf="@id/space" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="view"
+            type="android.view.View" />
+
+        <variable
+            name="attendanceItem"
+            type="com.colan.kindercare.data.remote.data.response.attendance.AttendanceResponse" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:orientation="vertical"
+        app:cardCornerRadius="@dimen/_5sdp"
+        app:cardElevation="@dimen/margin_botton_false">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="@dimen/_5sdp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="@dimen/_5sdp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="8dp" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:button="@drawable/checkbox_selector"
+                android:checked="@{attendanceItem.isSelected}"
+                android:visibility="@{attendanceItem.mEDIT_STAFF_ATTENDANCE?View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+                app:layout_constraintLeft_toRightOf="@id/guideline_left"
+                app:layout_constraintRight_toLeftOf="@+id/imageView6"
+                app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="@dimen/_42sdp"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/guideline_bottom"
+                app:layout_constraintLeft_toRightOf="@+id/checkBox"
+                app:layout_constraintTop_toBottomOf="@+id/guideline_top"
+                app:srcCompat="@drawable/ic_profile_pic"
+                bind:customImageFromUrl="@{attendanceItem.profile}"
+                bind:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                android:text="@={attendanceItem.name}"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintStart_toEndOf="@+id/imageView6"
+                app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageView7"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:visibility='@{attendanceItem.signInTime.equals("") ? View.VISIBLE : View.GONE}'
+                android:src="@{attendanceItem.status==1? @drawable/ic_present: @drawable/ic_absent}"
+                app:layout_constraintBottom_toBottomOf="@+id/textView23"
+                app:layout_constraintLeft_toRightOf="@+id/imageView6"
+                app:layout_constraintRight_toLeftOf="@+id/textView23"
+                app:layout_constraintTop_toTopOf="@+id/textView23" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/bwsurcodemo_bold"
+                android:text="@{attendanceItem.status==1? @string/present:@string/absent}"
+                android:textColor="@{attendanceItem.status==1?@color/green:@color/color_red}"
+                android:textSize="@dimen/_12ssp"
+                android:visibility='@{attendanceItem.signInTime.equals("") ? View.VISIBLE : View.GONE}'
+                app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+                app:layout_constraintLeft_toRightOf="@+id/imageView7"
+
+                />
+<!--android:visibility='@{attendanceItem.signInTime.equals("") ? View.VISIBLE : View.GONE}'-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_20sdp"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toRightOf="@+id/imageView6"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+                android:visibility='@{attendanceItem.signInTime.equals("") ? View.GONE : View.VISIBLE}'>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imageViewSignIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:background="@drawable/ic_sign_in_green" />
+
+                <TextView
+                    android:id="@+id/textViewSignIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bwsurcodemo_bold"
+                    android:hint="Select Time"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@{attendanceItem.signInTime}"
+                    android:textColor="@color/solid_black"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility='@{attendanceItem.signInTime.equals("") ? View.GONE : View.VISIBLE}'
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imageViewSignOut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:background="@drawable/ic_sign_out_blue"
+                    android:visibility='@{attendanceItem.signOutTime.equals("") ? View.GONE : View.VISIBLE}'/>
+
+                <TextView
+                    android:id="@+id/textViewSignOut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bwsurcodemo_bold"
+                    android:hint="Select Time"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@{attendanceItem.signOutTime ?? null}"
+                    android:textColor="@color/solid_black"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility='@{attendanceItem.signOutTime.equals("") ? View.GONE : View.VISIBLE}'
+                    />
+
+
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

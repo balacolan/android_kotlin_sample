@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_10sdp"
+    android:elevation="@dimen/_10sdp"
+    android:background="@drawable/circle_shape">
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/close_labe_invisible"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_15sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@drawable/ic_close"
+        android:padding="@dimen/_8sdp"
+        android:textColor="@color/red"
+        android:textSize="@dimen/_18ssp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/leave_rg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/filter_label"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/filter_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_4sdp"
+        android:fontFamily="@font/bwsurcodemo_medium"
+        android:gravity="center"
+        android:padding="@dimen/_8sdp"
+        android:text="@string/filter"
+        android:textColor="@color/purpleColor"
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintEnd_toStartOf="@+id/close_label"
+        app:layout_constraintStart_toEndOf="@+id/close_labe_invisible"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/view_bg"
+        android:layout_margin="@dimen/_12sdp"
+        android:id="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/filter_label"
+        app:layout_constraintBottom_toTopOf="@id/leave_rg"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/close_label"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_15sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@drawable/ic_close"
+        android:padding="@dimen/_8sdp"
+        android:textColor="@color/red"
+        android:textSize="@dimen/_18ssp"
+        app:layout_constraintBottom_toTopOf="@+id/leave_rg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/filter_label"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:id="@+id/leave_rg"
+        android:layout_marginStart="@dimen/_5sdp"
+        app:layout_constraintTop_toBottomOf="@+id/filter_label"
+        android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatRadioButton
+        android:id="@+id/all_rb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:fontFamily="@font/bwsurcodemo_medium"
+        android:theme="@style/RadioButtonStyle"
+        android:drawableStart="@drawable/radio_btn_selection"
+        android:drawablePadding="@dimen/_10sdp"
+        android:button="@null"
+        android:background="@android:color/transparent"
+        android:padding="@dimen/_8sdp"
+        android:text="@string/all"
+        android:textAllCaps="true"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <androidx.appcompat.widget.AppCompatRadioButton
+        android:id="@+id/pending_rb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:drawableStart="@drawable/radio_btn_selection"
+        android:drawablePadding="@dimen/_10sdp"
+        android:button="@null"
+        android:padding="@dimen/_8sdp"
+        android:fontFamily="@font/bwsurcodemo_medium"
+        android:background="@android:color/transparent"
+        android:theme="@style/RadioButtonStyle"
+        android:text="@string/pending"
+        android:textAllCaps="true"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/all_rb" />
+
+    <androidx.appcompat.widget.AppCompatRadioButton
+        android:id="@+id/approved_rb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/bwsurcodemo_medium"
+        android:padding="@dimen/_8sdp"
+        android:drawableStart="@drawable/radio_btn_selection"
+        android:drawablePadding="@dimen/_10sdp"
+        android:button="@null"
+        android:text="@string/approved"
+        android:textAllCaps="true"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pending_rb" />
+
+    <androidx.appcompat.widget.AppCompatRadioButton
+        android:id="@+id/rejected_rb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:fontFamily="@font/bwsurcodemo_medium"
+        android:padding="@dimen/_8sdp"
+        android:text="@string/rejected"
+        android:background="@android:color/transparent"
+        android:drawableStart="@drawable/radio_btn_selection"
+        android:drawablePadding="@dimen/_10sdp"
+        android:button="@null"
+        android:textAllCaps="true"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/approved_rb" />
+
+    <androidx.appcompat.widget.AppCompatRadioButton
+        android:id="@+id/cancelled_rb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:fontFamily="@font/bwsurcodemo_medium"
+        android:padding="@dimen/_8sdp"
+        android:text="@string/cancelled"
+        android:textAllCaps="true"
+        android:textSize="@dimen/_12ssp"
+        android:background="@android:color/transparent"
+        android:drawableStart="@drawable/radio_btn_selection"
+        android:drawablePadding="@dimen/_10sdp"
+        android:button="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rejected_rb" />
+    </RadioGroup>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/view_bg"
+        android:id="@+id/view4"
+        app:layout_constraintTop_toBottomOf="@+id/leave_rg"/>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:id="@+id/filter_by_date_label"
+        android:text="@string/filter_by_date"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        android:textSize="@dimen/_14ssp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:fontFamily="@font/bwsurcodemo_medium"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/linear_lay_dates"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/btnSubmit"
+        app:layout_constraintTop_toBottomOf="@id/filter_by_date_label">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvFromDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/from_date"
+        android:textSize="@dimen/_12ssp"
+        android:padding="@dimen/_10sdp"
+        android:textColor="@color/colorBlack"
+        android:layout_gravity="start"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_4sdp"
+
+        />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etFromDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.EditText"
+        android:background="@drawable/selector_edittext"
+        android:drawableEnd="@drawable/ic_calendar"
+        android:focusableInTouchMode="false"
+        android:padding="@dimen/_10sdp"
+        android:textSize="@dimen/_12ssp"
+        android:hint="@string/select_from_date"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_gravity="start"
+        />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvToDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/to_date"
+        android:textSize="@dimen/_12ssp"
+        android:padding="@dimen/_10sdp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_4sdp"
+        />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etToDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.EditText"
+        android:background="@drawable/selector_edittext"
+        android:drawableEnd="@drawable/ic_calendar"
+        android:focusableInTouchMode="false"
+        android:padding="@dimen/_10sdp"
+        android:hint="@string/select_to_date"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_gravity="start"
+        />
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSubmit"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8sdp"
+        android:background="@drawable/btn_green_bg"
+        android:fontFamily="@font/bwsurcodemo_medium"
+        android:text="@string/apply"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear_lay_dates" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

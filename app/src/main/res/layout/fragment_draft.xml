@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="draftMessageVM"
+            type="com.colan.kindercare.ui.modules.common.message.MessageVM"/>
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_line_center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_line_left"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_13sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_line_right"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_5sdp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/selector_cv"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_45sdp"
+            android:background="@color/white"
+            android:elevation="@dimen/_2sdp"
+            android:visibility="gone"
+            app:cardCornerRadius="@dimen/_17sdp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guide_line_center" />
+
+        <RadioGroup
+            android:id="@+id/radio_gb"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:elevation="@dimen/_10sdp"
+            android:onCheckedChanged="@{draftMessageVM.onRbChanged}"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            app:layout_constraintBottom_toBottomOf="@+id/selector_cv"
+            app:layout_constraintLeft_toLeftOf="@+id/selector_cv"
+            app:layout_constraintRight_toRightOf="@+id/selector_cv"
+            app:layout_constraintTop_toTopOf="@+id/selector_cv">
+
+            <RadioButton
+                android:id="@+id/all_message_rb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/radio_flat_selector"
+                android:button="@android:color/transparent"
+                android:checked="@{draftMessageVM.mAllMsgRb}"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:text="@string/all"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@drawable/radio_flat_text_selector"
+                android:textSize="@dimen/_10ssp" />
+
+            <RadioButton
+                android:id="@+id/super_admin_rb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/radio_flat_selector"
+                android:button="@android:color/transparent"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:text="@string/super_admin"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@drawable/radio_flat_text_selector"
+                android:textSize="@dimen/_10ssp" />
+
+            <RadioButton
+                android:id="@+id/admin_rb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/radio_flat_selector"
+                android:button="@android:color/transparent"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:text="@string/admin"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@drawable/radio_flat_text_selector"
+                android:textSize="@dimen/_10ssp" />
+
+        </RadioGroup>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/draft_rv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selector_cv" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

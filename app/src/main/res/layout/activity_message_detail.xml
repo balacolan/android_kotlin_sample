@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="messageVM"
+            type="com.colan.kindercare.ui.modules.common.message.MessageVM" />
+
+        <import type="android.view.View" />
+    </data>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/view_bg"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/custom_toolbar"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardElevation="@dimen/_5sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="@dimen/_2sdp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+
+
+            <include
+                android:id="@+id/msg_from_include_layout"
+                android:layout_width="match_parent"
+                android:visibility="@{messageVM.fromInboxMessage?View.VISIBLE:View.GONE}"
+                app:layout_constraintTop_toTopOf="@id/guideline_top"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                app:layout_constraintRight_toRightOf="@+id/guideline_right"
+                android:layout_height="match_parent"
+                bind:messageVM="@{messageVM}"
+                app:layout_constraintBottom_toBottomOf="@+id/divider_view"
+                layout="@layout/msg_from_layout"/>
+
+
+            <include
+                android:id="@+id/msg_to_include_layout"
+                android:layout_width="match_parent"
+                android:visibility="@{!messageVM.fromInboxMessage?View.VISIBLE:View.GONE}"
+                app:layout_constraintTop_toTopOf="@id/guideline_top"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                app:layout_constraintRight_toRightOf="@+id/guideline_right"
+                android:layout_height="match_parent"
+                bind:messageVM="@{messageVM}"
+                app:layout_constraintBottom_toTopOf="@+id/divider_view"
+                layout="@layout/msg_to_layout"/>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:id="@+id/divider_view"
+                app:layout_constraintBottom_toTopOf="@+id/textView15"
+                android:layout_height="1dp"/>
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/subject"
+                android:textSize="@dimen/_12ssp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/bwsurcodemo_book"
+                app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@+id/divider_view" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="@{@string/re+' '+messageVM.subject}"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/solid_black"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+                app:layout_constraintStart_toStartOf="@+id/textView15"
+                app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="@string/message"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="@font/bwsurcodemo_book"
+                app:layout_constraintStart_toStartOf="@+id/textView16"
+                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{messageVM.composeMessage}"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/text_color"
+                android:lineSpacingExtra="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/guideline_bottom"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+                app:layout_constraintStart_toStartOf="@+id/textView17"
+                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <include
+        android:layout_margin="@dimen/_5sdp"
+        android:id="@+id/attachment_view"
+        android:layout_width="match_parent"
+        android:visibility="@{messageVM.selectedFilePathList.size()>0?View.VISIBLE:View.GONE}"
+        android:layout_height="wrap_content"
+        layout="@layout/attachment_layout_white_bg"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/delete_msg_btn"
+        android:layout_gravity="center"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_red"
+        android:elevation="@dimen/_10sdp"
+        android:onClick="@{(view)->messageVM.onClickAction(view)}"
+        android:fontFamily="@font/bwsurcodemo_medium"
+        android:padding="@dimen/_10sdp"
+        android:text="@string/delete_msg"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12ssp"
+        android:textAllCaps="false"
+      />
+
+</LinearLayout>
+</layout>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="enrollmentEnquiryVM"
+            type="com.colan.kindercare.ui.modules.admin.enroll.EnrollmentEnquiryVM" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:id="@+id/top_view"
+            android:visibility="@{enrollmentEnquiryVM.isSuperAdmin()?View.VISIBLE:View.GONE}"
+            android:layout_height="@dimen/_25sdp"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_below="@+id/top_view"
+            android:layout_height="match_parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".ui.modules.admin.enroll.EnrollmentEnquiryFragment">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="8dp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_end="24dp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="8dp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_centre_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".50" />
+
+                <View
+                    android:id="@+id/date_bg_view"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@drawable/round_rectangle_background_yellow"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                    app:layout_constraintRight_toRightOf="@+id/guideline_right"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/date_previous_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:src="@drawable/ic_left_white"
+                    android:onClick="@{(view) -> enrollmentEnquiryVM.onClickAction(view)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/date_bg_view"
+                    app:layout_constraintLeft_toLeftOf="@+id/date_bg_view"
+                    app:layout_constraintTop_toTopOf="@+id/date_bg_view" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_calender_white"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:fontFamily="@font/bwsurcodemo_medium"
+                    android:text="@={enrollmentEnquiryVM.selectedDate}"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintBottom_toBottomOf="@+id/date_bg_view"
+                    app:layout_constraintLeft_toLeftOf="@+id/date_previous_iv"
+                    app:layout_constraintRight_toRightOf="@+id/date_next_iv"
+                    app:layout_constraintTop_toTopOf="@+id/date_bg_view" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/date_next_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:src="@drawable/ic_right_black"
+                    android:onClick="@{(view) -> enrollmentEnquiryVM.onClickAction(view)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/date_bg_view"
+                    app:layout_constraintRight_toRightOf="@+id/date_bg_view"
+                    app:layout_constraintTop_toTopOf="@+id/date_bg_view" />
+
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@color/veiw_grey"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                    app:layout_constraintTop_toBottomOf="@+id/date_bg_view" />
+
+
+                <include
+                    layout="@layout/enrollment_total_layout"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    app:enrollmentEnquiryVM="@{enrollmentEnquiryVM}"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                    app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+
+                <include
+                    android:id="@+id/accepted_layout"
+                    app:enrollmentEnquiryVM="@{enrollmentEnquiryVM}"
+                    layout="@layout/enrollment_accepted_layout"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline_centre_vertical"
+                    app:layout_constraintRight_toRightOf="@+id/guideline_centre_vertical"
+                    app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+                <include
+                    layout="@layout/enrollment_rejected_layout"
+                    app:enrollmentEnquiryVM="@{enrollmentEnquiryVM}"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    app:layout_constraintRight_toRightOf="@+id/guideline_right"
+                    app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@color/veiw_grey"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                    app:layout_constraintTop_toBottomOf="@+id/accepted_layout" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/enrollment_rv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintLeft_toLeftOf="@id/guideline_left"
+                    app:layout_constraintRight_toRightOf="@id/guideline_right"
+                    app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/add_new_enquiry_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/_10sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{(view) -> enrollmentEnquiryVM.onClickAction(view)}"
+            android:src="@drawable/ic_add_enquiry" />
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "693649683054",
+    "firebase_url": "https://kindercare-5a74b.firebaseio.com",
+    "project_id": "kindercare-5a74b",
+    "storage_bucket": "kindercare-5a74b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693649683054:android:053b58fea0ebadbaa06c7f",
+        "android_client_info": {
+          "package_name": "com.colan.kindercare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693649683054-a0i5peqv30gua88j486ikbubhhmp7j14.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.colan.kindercare",
+            "certificate_hash": "8ab31bf9a8259e8692b565155f67e8abc06282b8"
+          }
+        },
+        {
+          "client_id": "693649683054-r2mmh3ls0euae58httnbrecq7f537m4j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIv3mjPcTjsIpMMeI3TbIZoH64XVhtF8o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693649683054-r2mmh3ls0euae58httnbrecq7f537m4j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

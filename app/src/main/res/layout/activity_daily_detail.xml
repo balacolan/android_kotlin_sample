@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+        <variable
+            name="dailyActivityDetail"
+            type="com.colan.kindercare.ui.modules.common.dailyactivity.DailyActivityVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_hor_right_20_per"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".15" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/ic_toolbar_purple"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/guideline_hor_right_20_per"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nav_icon_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_margin="@dimen/_15sdp"
+                    android:onClick="@{(view) -> dailyActivityDetail.onClickAction(view)}"
+                    android:src="@drawable/ic_back"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/title_toolbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/bwsurcodemo_medium"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold"
+                    tools:ignore="ContentDescription" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/edit_pen_white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="@dimen/_15sdp"
+                    android:text="Edit"
+                    android:visibility="@{(dailyActivityDetail.isParent() || dailyActivityDetail.isAdmin())?View.VISIBLE:View.GONE}"
+                    android:onClick="@{(view)->dailyActivityDetail.onClickAction(view)}"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:drawableStart="@drawable/ic_edit_pen_white"
+                    android:textColor="@color/white"
+                    tools:ignore="ContentDescription" />
+
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

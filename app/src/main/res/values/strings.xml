@@ -1,0 +1,475 @@
+<resources>
+    <string name="app_name">KinderCare</string>
+    <!--loginscreen-->
+    <string name="forgot_password"><u>Forgot Password ?</u></string>
+    <string name="login">LOGIN</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="email_with_colan">Email:</string>
+    <!--forgotpassowrd-->
+    <string name="forgot">Forgot Password</string>
+    <string name="login_ul"><u>Login</u></string>
+    <string name="forgot_password_detail">Forgot your password? We\'ve got you covered, enter your email and we\'ll send you a OTP</string>
+    <string name="remember_password">Remember Password?</string>
+    <string name="submit">Submit</string>
+
+    <string name="dashboard">DASHBOARD</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="child_name">Staurt Little</string>
+    <string name="section">PreKG, A Section</string>
+    <string name="mail">esabellaava88@gmail.com</string>
+    <string name="phone_number">+91 9876543210</string>
+
+    <string name="child_name_hint"> Child Name</string>
+    <string name="child_agee"> Child Age -</string>
+    <string name="section_hint">Enter Section Name</string>
+
+
+    <!--Family Information -->
+    <string name="family_detail">Family Detail</string>
+    <string name="father_name">Father\'s Name</string>
+    <string name="father_contact">Father Contact</string>
+    <string name="mother_contact">Mother Contact</string>
+    <string name="mother_name">Mother\'s Name</string>
+    <string name="primary_email">Primary Email</string>
+    <string name="secondary_email">Secondary Email</string>
+    <string name="address">Address</string>
+    <string name="pickup_person_name">Pickup Person Name</string>
+    <string name="relationship">RelationShip</string>
+    <string name="contact_number">Contact Number</string>
+    <string name="status">Status</string>
+    <string name="authorized_pickup_person">Authorized Pickup Person</string>
+    <string name="authorized_pickup">Authorized Pickup</string>
+    <string name="approved">Approved</string>
+
+    <string name="start_now">START NOW!</string>
+    <string name="choose_child_profile">Choose Child Profile</string>
+    <string name="add_more_child"><u>ADD MORE CHILD</u></string>
+    <string name="test_date">10 October 2019</string>
+    <string name="test_date_week">September 2019 (Week 2)</string>
+    <string name="test_date_time">10:25 AM,   27 Sep 2019</string>
+    <string name="all_activity">All Activities</string>
+
+    <!--Parent payment-->
+    <string name="transcation">Transcations</string>
+    <string name="invoice">Invoice</string>
+    <string name="invoice_date">Invoice Date</string>
+    <string name="invoice_id">Invoice ID</string>
+    <string name="fees_type">Fees Type</string>
+    <string name="term_type">Term Type</string>
+    <string name="term">Term</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="fees">Fees</string>
+    <string name="paid_date">Paid Date</string>
+    <string name="payment_mode">Payment Mode</string>
+    <string name="payee_name">Payee Name</string>
+    <string name="make_to_pay">Make to Pay</string>
+    <string name="download_invoice">Download Invoice</string>
+
+
+    <string name="payment">PAYMENT</string>
+
+
+    <!-- Leave Status-->
+    <string name="leave_status">LEAVE STATUS</string>
+    <string name="leave_application">LEAVE APPLICATION</string>
+    <string name="request_leave">REQUEST LEAVE</string>
+
+    <!--Add Pickup Person-->
+    <string name="add_pickup_person">Add Pickup Person Detail</string>
+    <string name="cancel">Cancel</string>
+    <string name="enter_contact_number">Enter Contact Number</string>
+    <string name="pending">Pending</string>
+    <string name="add_leave_request">Add Leave Request</string>
+    <string name="starts">Starts</string>
+    <string name="mark_preset">Mark Present</string>
+
+    <string name="relationship_arrays">Select RelationShip</string>
+
+    <string-array name="relationship_arrays">
+        <item>Choose Relationship</item>
+        <item>Father</item>
+        <item>Mother</item>
+        <item>Uncle</item>
+    </string-array>
+    <string name="family_info">FAMILY INFORMATION</string>
+    <string name="dob">Date of Birth</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="upload_file">Upload File</string>
+    <string name="gender">Gender</string>
+    <string name="child_class">Class</string>
+    <string name="child_section">Section</string>
+
+    <string name="gender_prompt">Choose a Gender</string>
+    <string name="add_child">Add Child</string>
+    <string name="photos">PHOTOS</string>
+    <string name="description">Description</string>
+    <string name="test_desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</string>
+    <string name="test_photo_file">attachment.png</string>
+    <string name="meal">MEAL ACTIVITY</string>
+    <string name="meal_label">Meal Activity</string>
+    <string name="course_and_items">Course and Items</string>
+    <string name="class_room">CLASSROOM ACTIVITY</string>
+    <string name="title">Title</string>
+    <string name="category">Category</string>
+    <string name="test_title">Subject One</string>
+    <string name="test_category">Nursurey Rhymes</string>
+    <string name="milestone">Milestone</string>
+    <string name="test_duration">1 hour 15 minutes</string>
+    <string name="attachment">Attachments (3)</string>
+    <string name="test_size">29.52 KB</string>
+    <string name="view_all">View All</string>
+
+    <string name="am_snack">AM Snacks</string>
+    <string name="test_snacks">Coffee and Biscuits</string>
+    <string name="all">All</string>
+    <string name="super_admin">Super Admin</string>
+    <string name="admin">Admin</string>
+    <string name="teacher">Teachers</string>
+    <string name="test_msg_name">Chrish Hemsworth</string>
+    <string name="test_time">10.25 AM</string>
+    <string name="test_report">Re: Class Room Activities</string>
+    <string name="from">From:</string>
+    <string name="subject">Subject:</string>
+    <string name="message">Message:</string>
+    <string name="test_messages">Lorem ipsum dolor sit amet, consectetur adipisc elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="message_title">MESSAGES</string>
+    <string name="delete_msg">Delete Message</string>
+    <string name="inbox">Inbox</string>
+    <string name="attachment_title">ATTACHMENTS</string>
+    <string name="weekly_menu">WEEKLY MENU</string>
+    <string name="test_menu_date">September 13, Friday Menu</string>
+    <string name="go_to_todays_menu">Go to Today’s Menu</string>
+    <string name="leave_days">Leave Days</string>
+    <string name="leave_from">Leave From</string>
+    <string name="leave_till">Leave Till</string>
+    <string name="leave_type">Leave Type</string>
+    <string name="reason_for_leave">Reason For Leave</string>
+    <string name="reason">Reason</string>
+    <string name="emergency_contact">Emergency Contact</string>
+    <string name="delete_request">Delete Request</string>
+    <string name="apply">Apply</string>
+    <string name="version">v1.0</string>
+    <string name="viewAll">View All</string>
+    <string name="calender">Calender</string>
+    <string name="calender_tittle">CALENDAR</string>
+    <string name="birthday_wish">Wishing you a very Happy Birthday!</string>
+    <string name="no_of_class">No. of Class Rooms</string>
+    <string name="no_of_student">No. of Students</string>
+    <string name="no_of_working">No. of working days</string>
+    <string name="no_of_days_leave_taken">No. of days leave taken</string>
+    <string name="no_of_teacher">No. of Teachers</string>
+    <string name="no_of_support_staffs">No. of Support Staff</string>
+
+    <string name="no_of_students_present">No. of Students Present</string>
+    <string name="no_of_students_absent">No. of Students Absent </string>
+    <string name="no_of_teacher_present">No. of Teachers Present</string>
+    <string name="no_of_teacher_absent">No. of Teachers Absent </string>
+
+    <string name="no_of_student_present">No. of Student Present</string>
+    <string name="no_of_student_absent">No. of Student Absent </string>
+    <string name="no_of_teache_present">No. of Teacher Present</string>
+    <string name="no_of_teache_absent">No. of Teacher Absent </string>
+
+
+    <string name= "admins">Admins</string>
+    <string name="schools">School</string>
+    <string name="teachers">Teachers</string>
+    <string name="staffs">Staffs</string>
+
+    <string name="present">Present</string>
+    <string name="absent">Absent</string>
+    <string name="daily_attendance_title">DAILY ATTENDANCE</string>
+    <string name="daily_attendance">Daily Attendance</string>
+    <string name="sent">Sent</string>
+    <string name="draft">Draft</string>
+    <string name="trash">Trash</string>
+    <string name="compose">Compose</string>
+    <string name="to">To:</string>
+    <string name="message_type_key">MessageType</string>
+    <string name="add"><u>Add</u></string>
+    <string name="approval_confirmation">Approval Confirmation</string>
+
+    <string-array name="gender_arrays">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string-array name="realtionship_array">
+        <item>Mother</item>
+        <item>Father</item>
+    </string-array>
+
+    <string-array name="class_array">
+        <item>Pre KG</item>
+        <item>LKG</item>
+        <item>UKG</item>
+    </string-array>
+
+    <string-array name="section_array">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+    </string-array>
+
+    <!-- Profile-->
+    <string name="profile">Profile</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="change"><u>Change</u></string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="profile_name">Profile Name</string>
+
+    <!-- Change Password-->
+    <string name="change_password">Change Password</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="ends">Ends</string>
+    <string name="filter">Filter By</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="rejected">Rejected</string>
+    <string name="update">Update</string>
+    <string name="compose_message">COMPOSE MESSAGE</string>
+    <string name="save_draft">Save to Draft</string>
+
+
+    <string-array name="leave_days_array">
+        <item>More than One Day</item>
+        <item>One Day</item>
+    </string-array>
+    <!--<string-array name="leave_type_array">
+        <item>Sick Leave</item>
+        <item>Annual Leave</item>
+        <item>Others</item>
+    </string-array>-->
+
+    <string-array name="leave_type_array">
+        <item>Sick Leave</item>
+        <item>Casual Leave</item>
+        <item>LOP</item>
+    </string-array>
+
+
+    <!-- Daily Activity-->
+    <string name="daily_activity_tittle">DAILY ACTIVITY</string>
+    <string name="waiting_to_confirmation">Waiting to confirmation</string>
+    <string name="selected_students">Selected Students</string>
+    <string name="edit"><u>Edit</u></string>
+    <string name="edit_wthout_uline">Edit</string>
+    <string name="send">Send</string>
+    <string name="meal_tittle">MEAL</string>
+    <string name="nap_tittle">NAP</string>
+    <string name="activity_detail">Activity Detail</string>
+    <string name="start_time">Start Time</string>
+    <string name="duration">Duration</string>
+    <string name="class_tittle">CLASSROOM</string>
+    <string name="time">Time</string>
+    <string name="medicine">MEDICINE</string>
+    <string name="incident">INCIDENT</string>
+    <string name="re_send">Re Send</string>
+
+    <!-- Notification-->
+    <string name="notification">Notification</string>
+
+    <!-- Leave Approval-->
+    <string name="leave_approval">LEAVE APPROVAL</string>
+    <string name="approve">Approve</string>
+    <string name="reject">Reject</string>
+    <string name="student_name">Student Name</string>
+    <string name="class_name">Class</string>
+    <string name="request_date">Request Date</string>
+    <string name="contact_number_during_leave_days">Contact Number During Leave Days</string>
+    <string name="back">Back</string>
+    <string name="days">Days</string>
+    <string name="next">Next</string>
+    <string name="save">Save &amp; Send</string>
+    <string name="choose_activty">CHOOSE ACTIVITY</string>
+    <string name="add_more_image">Add More Image</string>
+    <string name="students">Students</string>
+    <string name="add_remove"><u>Add/Remove</u></string>
+    <string name="activity_photo">ACTIVITY PHOTOS</string>
+    <string name="lunch">Lunch</string>
+    <string name="nap_activity">Nap Activity</string>
+    <string name="end_time">End Time</string>
+    <string name="ativity_photos">ACTIVITY PHOTOS</string>
+    <string name="preview">PREVIEW</string>
+    <string name="selected_student">SELECT STUDENTS</string>
+    <string name="select_students">Select Students</string>
+    <string name="search_studen_name">Search Student Name</string>
+    <string name="select_all"><u>Select All</u></string>
+    <string name="overview">Overview</string>
+    <string name="attendance_stats">Attendance Stats</string>
+    <string name="attendance">ATTENDANCE</string>
+    <string name="attendance_sm">Attendance</string>
+    <string name="salary">Salary</string>
+    <string name="filter_color"><![CDATA[<font color=#F39C12>Filter:</font> User - <b>Student</b> / Class - <b>Pre KG</b> / Section - <b>A</b> / Date - <b>Monthly (February)</b>]]></string>
+    <string name="filter_text"> User - <b>Student</b> / Class - <b>PreKG</b> / Section - <b>A</b> / Date - <b>Monthly (February)</b></string>
+    <string name="filter_text_salary"><![CDATA[<font color=#F39C12>Filter:</font> Staff Type - <b>All</b> / date - <b>Monthly (February)</b>]]></string>
+
+    <string name="present_days">Present Days</string>
+    <string name="absent_days">Absent Days</string>
+    <string name="working_days">Working Days</string>
+    <string name="filter_attendance_report">Filter - Attendance Reports</string>
+    <string name="filter_by_user">Filter by Users</string>
+    <string name="filter_by_class">Filter by Class</string>
+    <string name="preKg">Pre KG</string>
+    <string name="lkg">LKG</string>
+    <string name="ukg">UKG</string>
+    <string name="a_section">A Section</string>
+    <string name="b_section">B Section</string>
+    <string name="staff_name">Staff Name</string>
+    <string name="staff_type">Staff Type</string>
+    <string name="total">Total</string>
+    <string name="accepted">Accepted</string>
+    <string name="child_name_label">Child Name</string>
+    <string name="child_age">Child Age</string>
+    <string name="purpose">Purpose</string>
+    <string name="edit_enquiry">Edit Enquiry</string>
+    <string name="delete_enquiry">Delete Enquiry</string>
+    <string name="enrollment_enquiry">ENROLMENT ENQUIRY</string>
+    <string name="pickup_person">Pickup Person</string>
+    <string name="pickup_person_details">PICKUP PERSON DETAILS</string>
+    <string name="reports">REPORTS</string>
+    <string name="filter_by_section">Filter by Section</string>
+    <string name="c_section">C Section</string>
+    <string name="filter_by_date">Filter by Date</string>
+    <string name="daily">Daily</string>
+    <string name="monthly">Monthly</string>
+    <string name="yearly">Yearly</string>
+    <string name="clear_all"><u>Clear All</u></string>
+    <string name="filter_salary_report">Filter - Salary Reports</string>
+    <string name="filter_by_stafftype">Filter by Staff Type</string>
+    <string name="other">Others</string>
+    <string name="signin">Sign In</string>
+    <string name="signout">Sign out</string>
+    <string name="pickup_person_approval">PICKUP PERSON APPROVAL</string>
+    <string name="from_date">From Date:</string>
+    <string name="to_date">To Date:</string>
+    <string name="select_to_date">Select To Date</string>
+    <string name="select_from_date">Select From Date</string>
+
+
+    <string-array name="class_selection_array">
+        <item>Class</item>
+        <item>Pre KG</item>
+        <item>LKG</item>
+        <item>UKG</item>
+    </string-array>
+
+    <string-array name="class_selection_no_array">
+        <item>Class</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="am_snacks_array">
+        <item>Milk and Biscuits</item>
+        <item>Boiled Egg</item>
+    </string-array>
+
+    <string-array name="pm_snacks_array">
+        <item>Milk and Biscuits</item>
+        <item>Sandwich and Egg</item>
+    </string-array>
+
+    <string-array name="section_selection_array">
+        <item>Section</item>
+        <item>A Section </item>
+        <item>B Section </item>
+        <item>C Section </item>
+    </string-array>
+
+
+    <string-array name="compose_msg_to_list">
+        <item>Parents</item>
+        <item>Teacher</item>
+        <item>Admin</item>
+        <item>Super Admin</item>
+    </string-array>
+
+
+    <string-array name="enquiry_purpose_array">
+        <item>admission</item>
+    </string-array>
+
+    <string-array name="enquiry_purpose_no_array">
+        <item>1</item>
+    </string-array>
+
+    <string-array name="enquiry_status_array">
+        <item>Active</item>
+        <item>Inactive</item>
+
+    </string-array>
+
+    <string-array name="enquiry_status_no_array">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="month_array">
+        <item>Jan</item>
+        <item>Feb</item>
+    </string-array>
+
+    <string name="class_room_activity">Class Room Activity</string>
+    <string name="enter_tittle">Enter Tittle</string>
+    <string name="add_attachment">Add Attachment</string>
+    <string name="student">Students</string>
+    <string name="medicine_activity">Medicine Activity</string>
+    <string name="incident_activity">Incident Activity</string>
+    <string name="bathroom_activity">BathRoom Activity</string>
+    <string name="type">Type</string>
+    <string name="diaper_change">Diaper Change</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="branch">Branch</string>
+    <string name="selec_school_branch">Select School Branch</string>
+    <string name="no_of_schools">No. of Schools</string>
+    <string name="no_of_students">No. of Students</string>
+    <string name="no_of_admin_users">No. of Admin Users</string>
+    <string name="parents">Parents</string>
+    <string name="title_reset_password">RESET PASSWORD</string>
+    <string name="hint_create_password">Create Password</string>
+    <string name="label_enter_otp">Enter OTP</string>
+    <string name="select_person">Select Person</string>
+    <string name="add_weekly_menu">ADD WEEKLY MENU</string>
+    <string name="menu_detail">Menu Detail</string>
+    <string name="select_date">Select Date</string>
+    <string name="select_teachers">Select Teachers</string>
+    <string name="preview_tiltle_case">Preview</string>
+    <string name="sent_message">SENT MESSAGE</string>
+    <string name="mark_absent">Mark Absent</string>
+    <string name="mark_present">Mark Present</string>
+    <string name="paid">Paid</string>
+    <string name="invoice_details">INVOICE DETAILS</string>
+    <string name="clear_all_text">Clear All</string>
+    <string name="kb">%2$d Kb</string>
+    <string name="compose_hint">Type your message here...</string>
+    <string name="subject_hint">Enter the Subject</string>
+    <string name="re">Re:</string>
+    <string name="empty_trash">Trash is empty!</string>
+    <string name="please_select_checkbox">Please Select the CheckBox</string>
+    <string-array name="hours_list">
+        <item>2 hr</item>
+        <item>3 hr</item>
+        <item>4 hr</item>
+    </string-array>
+
+    <string-array name="minute_list">
+        <item>30 min</item>
+        <item>40 min</item>
+        <item>50 min</item>
+    </string-array>
+
+
+    <string-array name="category_list">
+        <item>Select Milestone</item>
+    </string-array>
+    <string-array name="category_list_category">
+        <item>Select Category</item>
+    </string-array>
+</resources>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="addWeeklyMenuVM"
+            type="com.colan.kindercare.ui.modules.admin.addWeeklyMenu.AddWeeklyMenuVM" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        tools:context=".ui.modules.teacher.dailyActivity.AllActivity.fragment.PhotoActivityFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/_2sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/_16sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/custom_toolbar" />
+
+        <include
+            android:id="@+id/add_more_image_iv"
+            layout="@layout/step_two_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+            app:layout_constraintRight_toRightOf="@+id/guideline_right"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/guideline_bottom"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+            app:layout_constraintRight_toRightOf="@+id/guideline_right"
+            app:layout_constraintTop_toBottomOf="@+id/add_more_image_iv">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="@dimen/_5sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/guideline_bottom"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                app:layout_constraintRight_toRightOf="@+id/guideline_right"
+                app:layout_constraintTop_toBottomOf="@+id/add_more_image_iv">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/_10sdp">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/inner_guideline_top"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_begin="@dimen/_2sdp" />
+
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/inner_guideline_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/inner_guideline_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_centre_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent=".50" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/meal_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_bold"
+                        android:text="@string/select_person"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="@+id/inner_guideline_left"
+                        app:layout_constraintTop_toBottomOf="@id/inner_guideline_top" />
+
+
+                    <View
+                        android:id="@+id/view_line"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@color/view_line_bg"
+                        app:layout_constraintLeft_toLeftOf="@+id/inner_guideline_left"
+                        app:layout_constraintRight_toRightOf="@+id/inner_guideline_right"
+                        app:layout_constraintTop_toBottomOf="@+id/meal_label" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/class_sp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:background="@drawable/bg_dropdown"
+                        android:drawableEnd="@drawable/ic_calendar"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:overlapAnchor="false"
+                        android:entries="@array/class_selection_array"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:hint="@string/dob"
+                        android:padding="@dimen/_10sdp"
+                        android:prompt="@string/gender_prompt"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/hintColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="@id/inner_guideline_left"
+                        app:layout_constraintRight_toRightOf="@+id/guideline_centre_vertical"
+                        app:layout_constraintTop_toBottomOf="@+id/view_line" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/section_sp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/bg_dropdown"
+                        android:drawableEnd="@drawable/ic_calendar"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:entries="@array/section_selection_array"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:hint="@string/dob"
+                        android:padding="@dimen/_10sdp"
+                        android:prompt="@string/gender_prompt"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/hintColor"
+                        android:textSize="@dimen/_12ssp"
+                        android:visibility="invisible"
+                        app:layout_constraintLeft_toLeftOf="@+id/guideline_centre_vertical"
+                        app:layout_constraintRight_toRightOf="@id/inner_guideline_right"
+                        app:layout_constraintTop_toBottomOf="@+id/view_line" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/selected_students_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/select_students"
+                        android:textColor="@color/text_color"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintStart_toStartOf="@+id/inner_guideline_left"
+                        app:layout_constraintTop_toBottomOf="@id/class_sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/add_student"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|end"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/add_remove"
+                        android:textColor="@color/date_picker_bg"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintEnd_toEndOf="@+id/inner_guideline_right"
+                        app:layout_constraintTop_toBottomOf="@+id/class_sp" />
+
+                    <LinearLayout
+                        android:id="@+id/card_students"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_150sdp"
+                        android:layout_margin="@dimen/_3sdp"
+                        android:background="@drawable/rectangle_border_white"
+                        app:cardCornerRadius="@dimen/_8sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/inner_guideline_right"
+                        app:layout_constraintStart_toStartOf="@+id/inner_guideline_left"
+                        app:layout_constraintTop_toBottomOf="@+id/add_student">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/students_rv"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="@dimen/_5sdp"
+                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                            app:spanCount="2" />
+
+                    </LinearLayout>
+                    <View
+                        android:id="@+id/view_line2"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@color/view_line_bg"
+                        app:layout_constraintLeft_toLeftOf="@+id/inner_guideline_left"
+                        app:layout_constraintRight_toRightOf="@+id/inner_guideline_right"
+                        app:layout_constraintTop_toBottomOf="@+id/card_students" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/selected_teachers_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/select_teachers"
+                        android:textColor="@color/text_color"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintStart_toStartOf="@+id/inner_guideline_left"
+                        app:layout_constraintTop_toBottomOf="@id/view_line2" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/add_teacher"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|end"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/add_remove"
+                        android:textColor="@color/date_picker_bg"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintEnd_toEndOf="@+id/inner_guideline_right"
+                        app:layout_constraintTop_toBottomOf="@+id/view_line2" />
+
+                    <LinearLayout
+                        android:id="@+id/card_teachers"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_150sdp"
+                        android:layout_margin="@dimen/_3sdp"
+                        android:background="@drawable/rectangle_border_white"
+                        app:cardCornerRadius="@dimen/_8sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/inner_guideline_right"
+                        app:layout_constraintStart_toStartOf="@+id/inner_guideline_left"
+                        app:layout_constraintTop_toBottomOf="@+id/add_teacher">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/teachers_rv"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="@dimen/_5sdp"
+                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                            app:spanCount="2" />
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

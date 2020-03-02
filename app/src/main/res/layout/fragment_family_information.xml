@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="familyInformationVM"
+            type="com.colan.kindercare.ui.modules.parent.familyinformation.FamilyInformationVM" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_parent_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/button_shape"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:gravity="start|center"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/family_detail"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_14ssp"
+                android:translationZ="@dimen/_3sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvFamilyDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:background="@android:color/white"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_2sdp"
+                app:layout_constraintBottom_toTopOf="@+id/tvAuthorizedPerson"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_30sdp">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.027638191" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_bottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_centre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.4" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvFatherName"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/bg_corner_top"
+                        android:text="@string/father_name"
+                        app:layout_constraintBottom_toBottomOf="@id/tvFatherNameValue"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/tvFatherNameValue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvFatherNameValue"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Chris Hemsworth"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvMotherName"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/text_bg"
+                        android:text="@string/mother_name"
+                        app:layout_constraintBottom_toBottomOf="@id/tvMotherNameValue"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/tvMotherNameValue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvMotherNameValue"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Esabella Ava"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/tvFatherNameValue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvPrimaryEmail"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/text_bg"
+                        android:text="@string/primary_email"
+                        app:layout_constraintBottom_toBottomOf="@id/tvPrimaryEmailValue"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/tvPrimaryEmailValue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvPrimaryEmailValue"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="chrishemsworth@gmail.com"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/tvMotherNameValue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvSecondaryEmail"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/text_bg"
+                        android:text="@string/secondary_email"
+                        app:layout_constraintBottom_toBottomOf="@id/tvSecondaryEmailValue"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/tvSecondaryEmailValue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvSecondaryEmailValue"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="esabellaava@email.com"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/tvPrimaryEmailValue" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvFatherContact"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/text_bg"
+                        android:text="@string/father_contact"
+                        app:layout_constraintBottom_toBottomOf="@id/tvFatherContactValue"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/tvFatherContactValue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvFatherContactValue"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="+91 9876 54 3210"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/tvSecondaryEmailValue" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvMotherContact"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/text_bg"
+                        android:text="@string/mother_contact"
+                        app:layout_constraintBottom_toBottomOf="@id/tvMotherContactValue"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/tvMotherContactValue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvMotherContactValue"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="+91 9876 54 3210"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/tvFatherContactValue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvAddress"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/bg_corner_bottom"
+                        android:text="@string/address"
+                        app:layout_constraintBottom_toBottomOf="@id/tvAddressValue"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                        app:layout_constraintTop_toTopOf="@id/tvAddressValue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvAddressValue"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="No.24,Street Name,Area Name,City,State, CountryPincode."
+                        app:layout_constraintBottom_toBottomOf="@+id/guideline_bottom"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre"
+                        app:layout_constraintTop_toBottomOf="@id/tvMotherContactValue" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAuthorizedPerson"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/button_shape"
+                android:drawableEnd="@drawable/ic_edit"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:gravity="start|center"
+                android:onClick="@{(view)-> familyInformationVM.onClickAction(view)}"
+                android:paddingStart="@dimen/_15sdp"
+                android:paddingEnd="@dimen/_3sdp"
+                android:text="@string/authorized_pickup_person"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_14ssp"
+                android:translationZ="@dimen/_3sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cvFamilyDetail" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvAuthorizedPerson"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:background="@android:color/white"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_2sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/guideline_parent_bottom"
+                app:layout_constraintTop_toBottomOf="@id/cvFamilyDetail">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_30sdp">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_left_second"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_right_second"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_centre_second"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.4" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_bottom_second"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvPickUpPersonName"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/bg_corner_top"
+                        android:text="@string/pickup_person_name"
+                        app:layout_constraintBottom_toBottomOf="@id/tvPickUpPersonNameValue"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre_second"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left_second"
+                        app:layout_constraintTop_toTopOf="@id/tvPickUpPersonNameValue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvPickUpPersonNameValue"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:lines="2"
+                        android:text="Robert Downey Jr."
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right_second"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre_second"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvRelationShip"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/text_bg"
+                        android:text="@string/relationship"
+                        app:layout_constraintBottom_toBottomOf="@id/tvRelationShipValue"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre_second"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left_second"
+                        app:layout_constraintTop_toTopOf="@id/tvRelationShipValue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvRelationShipValue"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Uncle"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right_second"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre_second"
+                        app:layout_constraintTop_toBottomOf="@id/tvPickUpPersonNameValue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvContactNumber"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/text_bg"
+                        android:text="@string/contact_number"
+                        app:layout_constraintBottom_toBottomOf="@id/tvContactNumberValue"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre_second"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left_second"
+                        app:layout_constraintTop_toTopOf="@id/tvContactNumberValue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvContactNumberValue"
+                        style="@style/textStyleMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="+919876543210"
+                        app:layout_constraintEnd_toEndOf="@+id/guideline_right_second"
+                        app:layout_constraintStart_toEndOf="@id/guideline_centre_second"
+                        app:layout_constraintTop_toBottomOf="@id/tvRelationShipValue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvStatus"
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/bg_corner_bottom"
+                        android:text="@string/status"
+                        app:layout_constraintBottom_toBottomOf="@id/btnApproved"
+                        app:layout_constraintEnd_toStartOf="@id/guideline_centre_second"
+                        app:layout_constraintStart_toStartOf="@+id/guideline_left_second"
+                        app:layout_constraintTop_toTopOf="@id/btnApproved" />
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnApproved"
+                        android:layout_width="@dimen/_95sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@drawable/btn_green_bg"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:text="@string/approved"
+                        android:textAllCaps="false"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_12ssp"
+                        android:padding="@dimen/_2sdp"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/guideline_bottom_second"
+                        app:layout_constraintStart_toStartOf="@id/guideline_centre_second"
+                        app:layout_constraintTop_toBottomOf="@id/tvContactNumberValue" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>

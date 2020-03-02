@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource">
+
+    <data>
+
+        <variable
+            name="dashboardVM"
+            type="com.colan.kindercare.ui.dashboard.DashboardVM" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/view_bg"
+        tools:context=".ui.user.login.LoginActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_hor_right_10_per"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".02" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_hor_right_17_per"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".14" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_hor_right_20_per"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".17" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_hor_right_30_per"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".30" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            app:layout_constraintTop_toBottomOf="@+id/guideline_hor_right_17_per" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/ic_toolbar_purple"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/guideline_hor_right_20_per"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UselessParent">
+
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nav_icon_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_margin="@dimen/_15sdp"
+                    android:onClick="@{(view) -> dashboardVM.onClickAction(view)}"
+                    android:src="@drawable/ic_nav"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/title_toolbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/bwsurcodemo_medium"
+                    android:gravity="center"
+                    android:text="@string/dashboard"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold"
+                    tools:ignore="ContentDescription" />
+
+
+                <ImageView
+                    android:id="@+id/notification_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="@dimen/_15sdp"
+                    android:onClick="@{(view) -> dashboardVM.onClickAction(view)}"
+                    android:src="@drawable/ic_bell"
+                    tools:ignore="ContentDescription" />
+
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        </RelativeLayout>
+
+
+
+        <FrameLayout
+            android:id="@+id/report_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline_hor_right_17_per" />
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="0dp"
+            app:layout_marginTop="@{dashboardVM.isteacher || dashboardVM.isAdmin || dashboardVM.isSuperAdmin?7:20}"
+            android:layout_height="0dp"
+            android:padding="@dimen/_5sdp"
+            android:background="@color/background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_spinner_view" />
+
+        <FrameLayout
+            android:id="@+id/choose_child_fl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:background="@drawable/rectangle_backgroud_white"
+            android:visibility="@{dashboardVM.isShowingChooseChldlayout &amp; dashboardVM.isParent?View.VISIBLE:View.GONE}"
+            app:layout_constraintTop_toBottomOf="@+id/guideline_hor_right_20_per">
+<!--            android:visibility="@{dashboardVM.isShowingChooseChldlayout &amp; dashboardVM.isParent?View.VISIBLE:View.GONE}"-->
+            <include
+                android:id="@+id/choose_child"
+                layout="@layout/choose_child_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="visible"
+                bind:dashboardVM="@{dashboardVM}" />
+
+        </FrameLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/top_spinner_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:background="@color/view_bg"
+            android:visibility="@{dashboardVM.isParent?View.VISIBLE:View.GONE}"
+            app:cardCornerRadius="@dimen/_25sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/guideline_hor_right_20_per"
+            app:layout_constraintTop_toTopOf="@+id/guideline_hor_right_20_per">
+
+            <!--android:visibility="@{dashboardVM.isParent()?View.VISIBLE:View.GONE}"-->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="@dimen/_42sdp"
+                    android:layout_height="@dimen/_42sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:src="@drawable/ic_profile_pic"
+                    android:visibility="@{dashboardVM.isParent()?View.VISIBLE:View.GONE}"
+                    app:civ_border_color="@color/colorPrimary"
+                    app:civ_border_width="@dimen/_1sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/chid_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:fontFamily="@font/bwsurcodemo_book"
+                    android:text="@={dashboardVM.childName}"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold"
+                    android:visibility="@{dashboardVM.isParent()?View.VISIBLE:View.GONE}"
+                    app:layout_constraintLeft_toRightOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/child_section_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:fontFamily="@font/bwsurcodemo_medium"
+                    android:text="@={dashboardVM.childSection}"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="@{dashboardVM.isParent()?View.VISIBLE:View.GONE}"
+                    app:layout_constraintLeft_toRightOf="@+id/imageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/chid_name_tv" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/drop_down_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:onClick="@{(view) -> dashboardVM.onClickAction(view)}"
+                    android:src="@drawable/ic_dropdown_black"
+                    android:visibility="@{dashboardVM.isParent()?View.VISIBLE:View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <FrameLayout
+            android:id="@+id/choose_scool_fl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:background="@drawable/rectangle_backgroud_white"
+            android:visibility="@{dashboardVM.isShowingSchoollayout() &amp; dashboardVM.isSuperAdmin()?View.VISIBLE:View.GONE}"
+            app:layout_constraintTop_toBottomOf="@+id/guideline_hor_right_20_per">
+
+            <include
+                android:id="@+id/choose_school"
+                layout="@layout/choose_school_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{dashboardVM.isShowingSchoollayout() &amp; dashboardVM.isSuperAdmin()?View.VISIBLE:View.GONE}"
+                android:layout_marginTop="@dimen/_10sdp"
+                bind:dashboardVM="@{dashboardVM}" />
+
+        </FrameLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/top_school_spinner_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:background="@color/view_bg"
+            android:visibility="@{dashboardVM.isSuperAdmin()?View.VISIBLE:View.GONE}"
+            app:cardCornerRadius="@dimen/_25sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/guideline_hor_right_20_per"
+            app:layout_constraintTop_toTopOf="@+id/guideline_hor_right_20_per">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/school_logo_iv"
+                    android:layout_width="@dimen/_42sdp"
+                    android:layout_height="@dimen/_42sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:src="@drawable/ic_school"
+                    android:visibility="@{dashboardVM.isSuperAdmin()?View.VISIBLE:View.GONE}"
+                    app:civ_border_color="@color/colorPrimary"
+                    app:civ_border_width="@dimen/_1sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/school_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:fontFamily="@font/bwsurcodemo_book"
+                    android:text="@={dashboardVM.schoolName}"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold"
+                    android:visibility="@{dashboardVM.isSuperAdmin()?View.VISIBLE:View.GONE}"
+                    app:layout_constraintLeft_toRightOf="@+id/school_logo_iv"
+                    app:layout_constraintTop_toTopOf="@+id/school_logo_iv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/branch_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_3sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:fontFamily="@font/bwsurcodemo_book"
+                    android:text="@={dashboardVM.schoolBranch}"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="@{dashboardVM.isSuperAdmin()?View.VISIBLE:View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/school_logo_iv"
+                    app:layout_constraintTop_toBottomOf="@+id/school_name_tv" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/drop_down_school_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:onClick="@{(view) -> dashboardVM.onClickAction(view)}"
+                    android:src="@drawable/ic_dropdown_black"
+                    android:visibility="@{dashboardVM.isSuperAdmin()?View.VISIBLE:View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+     <!--   <androidx.constraintlayout.widget.Group
+            android:id="@+id/group2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="top_spinner_view,choose_child_fl" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="top_school_spinner_view" />
+-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

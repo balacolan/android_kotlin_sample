@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource">
+
+    <data>
+
+        <variable
+            name="weeklyVM"
+            type="com.colan.kindercare.ui.modules.common.weeklyMenu.WeeklyMenuVM" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:orientation="vertical"
+            tools:context=".ui.modules.common.WeeklyMenu.WeeklyMenuFragment">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="8dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="24dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="8dp" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/selector_cv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@color/white"
+                android:elevation="@dimen/_2sdp"
+                app:cardCornerRadius="@dimen/_18sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/radio_gb"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/_5sdp"
+                android:elevation="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                app:layout_constraintBottom_toBottomOf="@+id/selector_cv"
+                app:layout_constraintLeft_toLeftOf="@+id/selector_cv"
+                app:layout_constraintRight_toRightOf="@+id/selector_cv"
+                app:layout_constraintTop_toTopOf="@+id/selector_cv">
+
+                <RadioButton
+                    android:id="@+id/prekg_rb"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/radio_flat_selector"
+                    android:button="@android:color/transparent"
+                    android:checked="true"
+                    android:fontFamily="@font/bwsurcodemo_regular"
+                    android:text="@string/preKg"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/radio_flat_text_selector"
+                    android:textSize="@dimen/_12ssp" />
+
+                <RadioButton
+                    android:id="@+id/lkg_rb"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/radio_flat_selector"
+                    android:button="@android:color/transparent"
+                    android:fontFamily="@font/bwsurcodemo_regular"
+                    android:text="@string/lkg"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/radio_flat_text_selector"
+                    android:textSize="@dimen/_12ssp" />
+
+                <RadioButton
+                    android:id="@+id/ukg_rb"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/radio_flat_selector"
+                    android:button="@android:color/transparent"
+                    android:fontFamily="@font/bwsurcodemo_regular"
+                    android:text="@string/ukg"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/radio_flat_text_selector"
+                    android:textSize="@dimen/_12ssp" />
+            </RadioGroup>
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group"
+                android:layout_width="wrap_content"
+                android:visibility="@{weeklyVM.isAdmin()?View.VISIBLE:View.GONE}"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="radio_gb,selector_cv,add_new_activity_iv,edit_tv" />
+          <!--  <View
+                android:layout_width="0dp"
+                android:id="@+id/date_pic_bg_view"
+                android:visibility="visible"
+                android:layout_marginTop="@dimen/_7sdp"
+                app:layout_constraintTop_toBottomOf="@+id/date_tv"
+                android:background="@drawable/rectangle_border_bottom_white"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                app:layout_constraintRight_toRightOf="@+id/guideline_right"
+                android:layout_height="@dimen/_50sdp"/>
+
+            <View
+                android:id="@+id/date_bg_view"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/rectangle_backgroud_yellow"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                app:layout_constraintRight_toRightOf="@+id/guideline_right"
+                app:layout_constraintTop_toBottomOf="@+id/selector_cv" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/date_previous_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:src="@drawable/ic_left_white"
+                app:layout_constraintBottom_toBottomOf="@+id/date_bg_view"
+                app:layout_constraintLeft_toLeftOf="@+id/date_bg_view"
+                app:layout_constraintTop_toTopOf="@+id/date_bg_view" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/date_tv"
+                android:drawableStart="@drawable/ic_calender_white"
+                android:drawablePadding="@dimen/_10sdp"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                android:text="@string/test_date_week"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/date_bg_view"
+                app:layout_constraintLeft_toLeftOf="@+id/date_previous_iv"
+                app:layout_constraintRight_toRightOf="@+id/date_next_iv"
+                app:layout_constraintTop_toTopOf="@+id/date_bg_view" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/date_next_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:src="@drawable/ic_right_black"
+                app:layout_constraintBottom_toBottomOf="@+id/date_bg_view"
+                app:layout_constraintRight_toRightOf="@+id/date_bg_view"
+                app:layout_constraintTop_toTopOf="@+id/date_bg_view" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="0dp"
+                android:paddingStart="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_5sdp"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="@+id/date_pic_bg_view"
+                app:layout_constraintLeft_toLeftOf="@+id/date_pic_bg_view"
+                app:layout_constraintRight_toRightOf="@+id/date_pic_bg_view"
+                app:layout_constraintBottom_toBottomOf="@+id/date_pic_bg_view"
+                android:src="@drawable/test_date_frame"
+                android:layout_height="0dp"/>-->
+
+            <com.colan.kindercare.ui.cusome_ui.PersianDatePicker
+                android:id="@+id/persianDatePicker"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="@+id/selector_cv"
+                app:layout_constraintLeft_toLeftOf="@+id/date_pic_bg_view"
+                app:layout_constraintRight_toRightOf="@+id/date_pic_bg_view"
+                app:layout_constraintBottom_toBottomOf="@+id/date_pic_bg_view"/>
+
+
+            <!--   <View
+                    android:layout_width="0dp"
+                    android:id="@+id/date_pic_bg_view"
+                    android:visibility="visible"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/date_tv"
+                    android:background="@drawable/rectangle_border_bottom_white"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                    app:layout_constraintRight_toRightOf="@+id/guideline_right"
+                    android:layout_height="@dimen/_50sdp"/>
+
+                <View
+                    android:id="@+id/date_bg_view"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@drawable/rectangle_backgroud_yellow"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                    app:layout_constraintRight_toRightOf="@+id/guideline_right"
+                    app:layout_constraintTop_toTopOf="@+id/guideline_top" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/date_previous_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:src="@drawable/ic_left_white"
+                    app:layout_constraintBottom_toBottomOf="@+id/date_bg_view"
+                    app:layout_constraintLeft_toLeftOf="@+id/date_bg_view"
+                    app:layout_constraintTop_toTopOf="@+id/date_bg_view" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/date_tv"
+                    android:drawableStart="@drawable/ic_calender_white"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:fontFamily="@font/bwsurcodemo_medium"
+                    android:text="@string/test_date"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintBottom_toBottomOf="@+id/date_bg_view"
+                    app:layout_constraintLeft_toLeftOf="@+id/date_previous_iv"
+                    app:layout_constraintRight_toRightOf="@+id/date_next_iv"
+                    app:layout_constraintTop_toTopOf="@+id/date_bg_view" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/date_next_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:src="@drawable/ic_right_black"
+                    app:layout_constraintBottom_toBottomOf="@+id/date_bg_view"
+                    app:layout_constraintRight_toRightOf="@+id/date_bg_view"
+                    app:layout_constraintTop_toTopOf="@+id/date_bg_view" />
+
+
+
+            &lt;!&ndash;    <com.github.jhonnyx2012.horizontalpicker.HorizontalPicker
+                    android:id="@+id/datePicker"
+                    android:layout_width="0dp"
+                    app:layout_constraintTop_toTopOf="@+id/date_pic_bg_view"
+                    app:layout_constraintLeft_toLeftOf="@+id/date_pic_bg_view"
+                    app:layout_constraintRight_toRightOf="@+id/date_pic_bg_view"
+                    app:layout_constraintBottom_toBottomOf="@+id/date_pic_bg_view"
+                    android:layout_height="0dp"/>&ndash;&gt;
+
+
+                <com.github.jhonnyx2012.horizontalpicker.HorizontalPicker
+                    android:id="@+id/datePicker"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    app:layout_constraintTop_toBottomOf="@+id/date_bg_view"
+                    android:layout_height="@dimen/_100sdp"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:paddingStart="@dimen/_5sdp"
+                    android:paddingEnd="@dimen/_5sdp"
+                    app:layout_constraintTop_toTopOf="@+id/date_pic_bg_view"
+                    app:layout_constraintLeft_toLeftOf="@+id/date_pic_bg_view"
+                    app:layout_constraintRight_toRightOf="@+id/date_pic_bg_view"
+                    app:layout_constraintBottom_toBottomOf="@+id/date_pic_bg_view"
+                    android:src="@drawable/test_date_frame"
+                    android:layout_height="0dp"/>-->
+
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="#DFDFDF"
+                app:layout_constraintTop_toBottomOf="@+id/date_pic_bg_view" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/meu_date_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                android:text="@string/test_menu_date"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_14ssp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                app:layout_constraintRight_toLeftOf="@+id/edit_tv"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:id="@+id/edit_tv"
+                android:text="@{weeklyVM.isAdmin() ? @string/edit_wthout_uline : @string/edit}"
+                android:textColor="@color/colorPrimaryDark"
+                android:drawablePadding="@dimen/_5sdp"
+                android:drawableStart="@drawable/ic_edit_pen"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/meu_date_tv"
+                app:layout_constraintTop_toTopOf="@+id/meu_date_tv"
+                app:layout_constraintLeft_toRightOf="@+id/meu_date_tv"
+                app:layout_constraintRight_toRightOf="@+id/guideline_right"
+                android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/menu_rv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                app:layout_constraintRight_toRightOf="@+id/guideline_right"
+                app:layout_constraintTop_toBottomOf="@+id/meu_date_tv" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/add_child_btn"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:background="@drawable/rectangle_yellow"
+                android:elevation="@dimen/_10sdp"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/go_to_todays_menu"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                android:visibility="@{weeklyVM.isAdmin?View.GONE:View.VISIBLE}"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toBottomOf="@+id/guideline_bottom"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+                app:layout_constraintRight_toRightOf="@+id/guideline_right"
+                app:layout_constraintTop_toBottomOf="@+id/menu_rv" />
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:id="@+id/add_new_activity_iv"
+                android:src="@drawable/ic_daily_activity_add"
+                app:layout_constraintTop_toBottomOf="@id/menu_rv"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

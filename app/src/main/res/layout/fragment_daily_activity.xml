@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:shimmer="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dailyActivityVM"
+            type="com.colan.kindercare.ui.modules.common.dailyactivity.DailyActivityVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_centre_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".50" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_6sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_6sdp" />
+
+
+        <View
+            android:id="@+id/date_bg_view"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_35sdp"
+            android:background="@drawable/round_rectangle_background_yellow"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+            app:layout_constraintRight_toRightOf="@+id/guideline_right"
+            app:layout_constraintTop_toTopOf="parent" />
+
+       <!-- <View
+            android:id="@+id/view_top"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_2sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@color/veiw_grey"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@+id/date_bg_view" />-->
+
+        <View
+            android:layout_width="0dp"
+            android:id="@+id/view_top"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@color/veiw_grey"
+            app:layout_constraintRight_toRightOf="@+id/guideline_right"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@+id/date_previous_iv"
+            android:layout_height="@dimen/_2sdp"
+            android:layout_marginBottom="@dimen/_5sdp"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/date_previous_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:src="@drawable/ic_left_white"
+            android:onClick="@{(view) -> dailyActivityVM.onClickAction(view)}"
+            app:layout_constraintBottom_toBottomOf="@+id/date_bg_view"
+            app:layout_constraintLeft_toLeftOf="@+id/date_bg_view"
+            app:layout_constraintTop_toTopOf="@+id/date_bg_view" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_calender_white"
+            android:drawablePadding="@dimen/_10sdp"
+            android:fontFamily="@font/bwsurcodemo_medium"
+            android:text="@={dailyActivityVM.currentDate}"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/date_bg_view"
+            app:layout_constraintLeft_toLeftOf="@+id/date_previous_iv"
+            app:layout_constraintRight_toRightOf="@+id/date_next_iv"
+            app:layout_constraintTop_toTopOf="@+id/date_bg_view" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/date_next_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:src="@drawable/ic_right_black"
+            android:onClick="@{(view) -> dailyActivityVM.onClickAction(view)}"
+            app:layout_constraintBottom_toBottomOf="@+id/date_bg_view"
+            app:layout_constraintRight_toRightOf="@+id/date_bg_view"
+            app:layout_constraintTop_toTopOf="@+id/date_bg_view" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/class_sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@drawable/bg_dropdown"
+            android:drawableEnd="@drawable/ic_calendar"
+            android:entries="@array/class_selection_array"
+            android:fontFamily="@font/bwsurcodemo_medium"
+            android:hint="@string/dob"
+            android:padding="@dimen/_10sdp"
+            android:spinnerMode="dropdown"
+            android:prompt="@string/child_class"
+            android:textColor="@color/textColor"
+            android:textColorHint="@color/hintColor"
+            android:overlapAnchor="false"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toTopOf="@+id/daily_activity_rv"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+            app:layout_constraintRight_toRightOf="@+id/guideline_centre_vertical"
+            app:layout_constraintTop_toBottomOf="@+id/view_top" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/section_sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@drawable/bg_dropdown"
+            android:entries="@array/section_selection_array"
+            android:fontFamily="@font/bwsurcodemo_medium"
+            android:hint="@string/dob"
+            android:spinnerMode="dropdown"
+            android:padding="@dimen/_10sdp"
+            android:prompt="@string/gender_prompt"
+            android:textColor="@color/textColor"
+            android:textColorHint="@color/hintColor"
+            android:overlapAnchor="false"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toTopOf="@+id/daily_activity_rv"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_centre_vertical"
+            app:layout_constraintRight_toRightOf="@+id/guideline_right"
+            app:layout_constraintTop_toBottomOf="@+id/view_top" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/daily_activity_rv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_right"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@id/section_sp" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{(view) -> dailyActivityVM.onClickAction(view)}"
+            android:id="@+id/add_new_activity_iv"
+            android:src="@drawable/ic_daily_activity_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

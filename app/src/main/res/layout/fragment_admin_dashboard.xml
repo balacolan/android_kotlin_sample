@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="adminDashboardVM"
+            type="com.colan.kindercare.ui.modules.admin.AdminDashboardVM" />
+
+        <import type="android.view.View" />
+    </data>
+  <!--  <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.modules.teacher.TeacherDashboardFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="2dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="24dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="8dp" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".5" />
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:id="@+id/overview_lable"
+            android:text="@string/overview"
+            android:textColor="@color/solid_black"
+            android:textSize="@dimen/_14ssp"
+            android:fontFamily="@font/bwsurcodemo_medium"
+            bind:layout_constraintTop_toTopOf="@+id/guideline_top"
+            bind:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+            android:layout_height="wrap_content"/>
+
+
+        <View
+            android:layout_width="0dp"
+            bind:layout_constraintTop_toBottomOf="@+id/overview_lable"
+            android:id="@+id/view1"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/view_line_bg"
+            bind:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+            bind:layout_constraintRight_toRightOf="@+id/guideline_right"
+            android:layout_height="2dp"/>
+
+        <include
+            android:layout_width="0dp"
+            bind:teacherDashboardVM="@{teacherDashboardVM}"
+            android:id="@+id/class_layout"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintRight_toRightOf="@+id/guideline_center"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@+id/view1"
+            layout="@layout/teacher_dashboard_list_items"/>
+
+        <include
+            android:layout_width="0dp"
+            android:id="@+id/student_layout"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintRight_toRightOf="@+id/guideline_right"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_center"
+            app:layout_constraintTop_toBottomOf="@+id/view1"
+            layout="@layout/teacher_dashboard_list_items"/>
+
+        <include
+            android:layout_width="0dp"
+            android:id="@+id/days_layout"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintRight_toRightOf="@+id/guideline_center"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@+id/class_layout"
+            layout="@layout/teacher_dashboard_list_items"/>
+
+        <include
+            android:layout_width="0dp"
+            android:id="@+id/leave_layout"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintRight_toRightOf="@+id/guideline_right"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_center"
+            app:layout_constraintTop_toBottomOf="@+id/class_layout"
+            layout="@layout/teacher_dashboard_list_items"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <include
+            android:layout_width="match_parent"
+            android:id="@+id/overview_layout"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            layout="@layout/test_dashboard_layout"/>
+
+        <include
+            android:layout_width="match_parent"
+            android:id="@+id/attendacne_layout"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            layout="@layout/test_dashboard_layout2"/>
+
+    </LinearLayout>
+
+
+    </ScrollView>
+</layout>

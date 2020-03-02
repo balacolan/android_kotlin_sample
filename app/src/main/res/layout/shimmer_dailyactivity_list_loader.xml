@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/card_daily_item"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="@dimen/_minus1sdp"
+        app:cardCornerRadius="@dimen/_8sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_3sdp">
+
+            <View
+                android:id="@+id/date_tv"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:padding="@dimen/_5sdp"
+                android:background="@color/background"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/_12ssp"
+                android:layout_margin="@dimen/_4sdp"
+                app:layout_constraintBottom_toTopOf="@+id/class_section_tv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/daily_activity_iv"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_margin="@dimen/_4sdp"
+                android:background="@color/background"
+                app:layout_constraintBottom_toBottomOf="@+id/daily_activity_tv"
+                app:layout_constraintEnd_toStartOf="@+id/daily_activity_tv"
+                app:layout_constraintTop_toTopOf="@+id/daily_activity_tv" />
+
+            <View
+                android:id="@+id/daily_activity_tv"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:padding="@dimen/_5sdp"
+                android:background="@color/background"
+                android:layout_margin="@dimen/_4sdp"
+                app:layout_constraintBottom_toTopOf="@+id/daily_activiity_status_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/class_section_tv"
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:fontFamily="@font/bwsurcodemo_bold"
+                android:padding="@dimen/_5sdp"
+                android:background="@color/background"
+                android:layout_margin="@dimen/_4sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/date_tv" />
+
+
+            <View
+                android:id="@+id/daily_activiity_status_tv"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_margin="@dimen/_4sdp"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:gravity="center"
+                android:background="@color/background"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/class_section_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/class_section_tv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="com.colan.kindercare.R"/>
+
+        <variable
+            name="view"
+            type="android.view.View"/>
+
+        <variable
+            name="photosItem"
+            type="com.colan.kindercare.data.model.PhotosModel"/>
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_marginBottom="@dimen/_10sdp"
+    android:background="@drawable/rectangle_corner_radius_white"
+    android:layout_height="wrap_content">
+
+    <com.colan.kindercare.ui.cusome_ui.RoundRectCornerImageView
+        android:layout_width="match_parent"
+        android:id="@+id/photo_content_iv"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/test_pic2"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@+id/photo_content_iv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/photo_name_tv"
+        android:textSize="@dimen/_12ssp"
+        style="@style/textStyleMedium"
+        android:text="@string/test_photo_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:src="@drawable/ic_download"
+        app:layout_constraintTop_toBottomOf="@+id/photo_content_iv"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="@dimen/_25sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

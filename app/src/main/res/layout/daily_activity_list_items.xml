@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="dailyActivityItem"
+            type="com.colan.kindercare.data.model.DailyActivityModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/card_daily_item"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="@dimen/_minus1sdp"
+        app:cardCornerRadius="@dimen/_8sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_3sdp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:padding="@dimen/_5sdp"
+                android:text="@{dailyActivityItem.tvDate}"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/_12ssp"
+                android:layout_margin="@dimen/_4sdp"
+                app:layout_constraintBottom_toTopOf="@+id/class_section_tv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/daily_activity_iv"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_margin="@dimen/_4sdp"
+                android:background="@{dailyActivityItem.tvActivityType.equals(`Meal`) ? @drawable/ic_meal_icon : dailyActivityItem.tvActivityType.equals(`Nap`) ? @drawable/ic_nap_icon : dailyActivityItem.tvActivityType.equals(`Classroom`) ? @drawable/ic_presentation : dailyActivityItem.tvActivityType.equals(`Incident`) ? @drawable/ic_incidents: @drawable/ic_medicine }"
+                app:layout_constraintBottom_toBottomOf="@+id/daily_activity_tv"
+                app:layout_constraintEnd_toStartOf="@+id/daily_activity_tv"
+                app:layout_constraintTop_toTopOf="@+id/daily_activity_tv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/daily_activity_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:padding="@dimen/_5sdp"
+                android:layout_margin="@dimen/_4sdp"
+                android:text="@{dailyActivityItem.tvActivityType}"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toTopOf="@+id/daily_activiity_status_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/class_section_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bwsurcodemo_bold"
+                android:padding="@dimen/_5sdp"
+                android:text="@{dailyActivityItem.tvClass}"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_14ssp"
+                android:layout_margin="@dimen/_4sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/date_tv" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/daily_activiity_status_tv"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_margin="@dimen/_4sdp"
+                android:background="@{dailyActivityItem.tvActivityStatus.equals(`Pending`) ? @drawable/btn_yellow_bg : dailyActivityItem.tvActivityStatus.equals(`Approved`) ? @drawable/btn_green_bg : @drawable/btn_red_bg }"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:gravity="center"
+                android:padding="@dimen/_4sdp"
+                android:text="@{dailyActivityItem.tvActivityStatus}"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintBottom_toBottomOf="@+id/class_section_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/class_section_tv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

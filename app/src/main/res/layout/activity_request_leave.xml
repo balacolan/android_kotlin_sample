@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+        <variable
+            name="requestLeaveVM"
+            type="com.colan.kindercare.ui.modules.common.leavestatus.LeaveStatusVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.87" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/custom_toolbar" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="@+id/guideline_bottom"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+            app:layout_constraintRight_toRightOf="@+id/guideline_right"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_6sdp"
+                app:cardElevation="@dimen/_3sdp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_centre_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent=".50" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/leave_days_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bwsurcodemo_regular"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/leave_days"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/_12ssp"
+                        android:visibility="gone"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/leave_days_sp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10ssp"
+                        android:background="@drawable/bg_dropdown"
+                        android:drawableEnd="@drawable/ic_calendar"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:entries="@array/leave_days_array"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:hint="@string/dob"
+                        android:padding="@dimen/_10sdp"
+                        android:visibility="gone"
+                        android:onItemSelected="@{(parent,view,pos,id)->requestLeaveVM.onSelectLeaveDays(parent,view,pos,id)}"
+                        android:prompt="@string/gender_prompt"
+                        android:overlapAnchor="false"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/hintColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/leave_days_label" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/leave_from_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_regular"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/leave_from"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/leave_days_sp" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/child_dob_et"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/selector_edittext"
+                        android:drawableEnd="@drawable/ic_calendar"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:hint="@string/leave_from"
+                        android:inputType="date"
+                        android:text="@={requestLeaveVM.mFromDate}"
+                        android:focusableInTouchMode="false"
+                        android:onClick="onClickView"
+                        android:paddingStart="@dimen/_20sdp"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingEnd="@dimen/_20sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/hintColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/leave_from_label" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/leave_till_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_regular"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/leave_till"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/child_dob_et" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/leave_till_et"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/selector_edittext"
+                        android:drawableEnd="@drawable/ic_calendar"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:hint="@string/leave_till"
+                        android:text="@={requestLeaveVM.mToDate}"
+                        android:onClick="onClickView"
+                        android:inputType="date"
+                        android:focusableInTouchMode="false"
+                        android:paddingStart="@dimen/_20sdp"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingEnd="@dimen/_20sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/hintColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/leave_till_label" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/leave_type_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_regular"
+                        android:text="@string/leave_type"
+                        android:textColor="@color/textColor"
+                        android:padding="@dimen/_5sdp"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/leave_till_et" />
+
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/leave_type_sp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/bg_dropdown"
+                        android:drawableEnd="@drawable/ic_calendar"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:entries="@array/leave_type_array"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:hint="@string/dob"
+                        android:onItemSelected="@{(parent,view,pos,id)->requestLeaveVM.onSelectLeaveType(parent,view,pos,id)}"
+                        android:padding="@dimen/_10sdp"
+                        android:prompt="@string/gender_prompt"
+                        android:overlapAnchor="false"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/hintColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/leave_type_label" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/leave_reason_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_regular"
+                        android:text="@string/reason_for_leave"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/_12ssp"
+                        android:padding="@dimen/_5sdp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/leave_type_sp" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/reave_for_leave_et"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_80sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/selector_edittext"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:gravity="start"
+                        android:hint="@string/reason_for_leave"
+                        android:text="@={requestLeaveVM.mReason}"
+                        android:paddingStart="@dimen/_20sdp"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/hintColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/leave_reason_label" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/emergency_contact_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_regular"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/emergency_contact"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/reave_for_leave_et" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/emergency_contact_et"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@drawable/selector_edittext"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:hint="@string/emergency_contact"
+                        android:paddingStart="@dimen/_20sdp"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:inputType="number"
+                        android:maxEms="10"
+                        android:textColor="@color/textColor"
+                        android:text="@={requestLeaveVM.mContact}"
+                        android:textColorHint="@color/hintColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/emergency_contact_label" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </ScrollView>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:background="@drawable/circle_shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guideline_bottom">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_centre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".50" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/cancel_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/btn_red_bg"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                android:text="@string/cancel"
+                android:onClick="@{(view)->requestLeaveVM.onClickAction(view)}"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@+id/guideline_centre"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/apply_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/btn_green_bg"
+                android:fontFamily="@font/bwsurcodemo_medium"
+                android:text="@string/apply"
+                android:onClick="@{(view)->requestLeaveVM.onClickAction(view)}"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@+id/guideline_centre"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

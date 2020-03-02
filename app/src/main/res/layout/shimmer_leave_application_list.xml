@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/leave_status_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_3sdp"
+    app:cardCornerRadius="@dimen/_8sdp"
+    app:cardElevation="@dimen/_1sdp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_4sdp">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineVertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_hor_right_20_per"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".30" />
+
+        <View
+            android:id="@+id/ivType"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_margin="@dimen/_4sdp"
+            android:background="@color/background"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_hor_right_20_per"
+            app:layout_constraintEnd_toStartOf="@id/tvLeaveType"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/tvLeaveType"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_margin="@dimen/_4sdp"
+            android:padding="@dimen/_4sdp"
+            android:background="@color/background"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_hor_right_20_per"
+            app:layout_constraintStart_toEndOf="@+id/ivType"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/tvLeaveStatus"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_margin="@dimen/_6sdp"
+            android:gravity="center"
+            android:padding="@dimen/_4sdp"
+            android:background="@color/background"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_hor_right_20_per"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <View
+            android:id="@+id/view_first"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_margin="@dimen/_4sdp"
+            android:background="@color/color_view"
+            app:layout_constraintBottom_toTopOf="@+id/tvLeaveDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline_hor_right_20_per" />
+
+
+        <View
+            android:id="@+id/tvLeaveDate"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:background="@color/background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/guidelineVertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_first" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@color/background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guidelineVertical"
+            app:layout_constraintTop_toBottomOf="@id/view_first">
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide_line_right"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="99dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide_line_left"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".70" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvStart"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toTopOf="@+id/tvStartDate"
+                app:layout_constraintEnd_toStartOf="@+id/guide_line_right"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvEnd"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toTopOf="@+id/tvEndDate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/guide_line_left"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvStartDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bwsurcodemo_bold"
+                android:text="@{leaveAdapter.tvStartDate}"
+                android:textColor="@color/date_color"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/tvStartYear"
+                app:layout_constraintEnd_toStartOf="@+id/guide_line_right"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvStart" />
+
+            <View
+                android:id="@+id/view_second"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/view_bg_color"
+                app:layout_constraintBottom_toTopOf="@+id/tvStartYear"
+                app:layout_constraintEnd_toStartOf="@+id/guide_line_left"
+                app:layout_constraintStart_toEndOf="@+id/guide_line_right"
+                app:layout_constraintTop_toBottomOf="@+id/tvStart" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvEndDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bwsurcodemo_bold"
+                android:text="@{leaveAdapter.tvEndDate}"
+                android:textColor="@color/date_color"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/tvEndYear"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/guide_line_left"
+                app:layout_constraintTop_toBottomOf="@+id/tvEnd" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvStartYear"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guide_line_right"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvStartDate" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvEndYear"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bwsurcodemo_regular"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/guide_line_left"
+                app:layout_constraintTop_toBottomOf="@+id/tvEndDate" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource">
+
+    <data>
+
+        <variable
+            name="dashboardVM"
+            type="com.colan.kindercare.ui.dashboard.DashboardVM" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="8dp" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="8dp" />
+
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/custom_toolbar" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="@+id/guideline_bottom"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+            app:layout_constraintRight_toRightOf="@+id/guideline_right"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_6sdp"
+                app:cardElevation="@dimen/_3sdp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp">
+
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_centre_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent=".50" />
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_child_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:src="@drawable/ic_profile_pic"
+                        app:civ_border_color="@color/colorPrimary"
+                        app:civ_border_width="@dimen/_1sdp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/add_child_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_40sdp"
+                        android:layout_marginRight="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_40sdp"
+                        android:background="@drawable/rectangle_yellow"
+                        android:elevation="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:text="@string/upload_image"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_child_iv"
+                        app:layout_constraintLeft_toRightOf="@+id/profile_child_iv"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/profile_child_iv" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/child_name_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:fontFamily="@font/bwsurcodemo_regular"
+                        android:text="@string/child_name_hint"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_child_iv" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/child_name_et"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/selector_edittext"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:hint="@string/child_name_hint"
+                        android:paddingStart="@dimen/_20sdp"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/hintColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/child_name_label" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/dob_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_regular"
+                        android:text="@string/dob"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/child_name_et" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/child_dob_et"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/selector_edittext"
+                        android:drawableEnd="@drawable/ic_calendar_add_child"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:hint="@string/dob"
+                        android:paddingStart="@dimen/_20sdp"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingEnd="@dimen/_20sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/hintColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/dob_label" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/gender_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_regular"
+                        android:text="@string/gender"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/child_dob_et" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/gender_sp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/bg_dropdown"
+                        android:drawableEnd="@drawable/ic_calendar"
+                        android:drawablePadding="@dimen/_10sdp"
+                        app:customHint="@{@string/gender_prompt}"
+                        app:dataItems="@{dashboardVM.mGenderList}"
+                        app:customItemDropDownLayoutRes="@{@layout/dropdown_tv_layout_left}"
+                        app:customItemDropDownTextViewId="@{@id/drop_down_tv}"
+                        app:customItemLayoutRes="@{@layout/item_dropdown_left}"
+                        app:customItemTextViewId="@{@id/drop_down_tv}"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:padding="@dimen/_10sdp"
+                        android:prompt="@string/gender_prompt"
+                        android:overlapAnchor="false"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/hintColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/gender_label" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/class_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_regular"
+                        android:text="@string/child_class"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/_14ssp"
+                        android:translationZ="@dimen/_100sdp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/gender_sp" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/class_sp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:background="@drawable/bg_dropdown"
+                        android:drawableEnd="@drawable/ic_calendar"
+                        android:entries="@array/class_array"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:hint="@string/dob"
+                        android:padding="@dimen/_10sdp"
+                        app:customHint="@{@string/child_class}"
+                        app:dataItems="@{dashboardVM.mClassList}"
+                        app:customItemDropDownLayoutRes="@{@layout/dropdown_tv_layout_left}"
+                        app:customItemDropDownTextViewId="@{@id/drop_down_tv}"
+                        app:customItemLayoutRes="@{@layout/item_dropdown_left}"
+                        app:customItemTextViewId="@{@id/drop_down_tv}"
+                        android:overlapAnchor="false"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/hintColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="@+id/guideline_centre_vertical"
+                        app:layout_constraintTop_toBottomOf="@+id/class_label" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/section_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bwsurcodemo_regular"
+                        android:text="@string/child_section"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/_14ssp"
+                        android:translationZ="@dimen/_100sdp"
+                        app:layout_constraintLeft_toLeftOf="@+id/guideline_centre_vertical"
+                        app:layout_constraintTop_toBottomOf="@+id/gender_sp" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/section_sp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/bg_dropdown"
+                        android:entries="@array/section_array"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:hint="@string/dob"
+                        android:padding="@dimen/_10sdp"
+                        android:overlapAnchor="false"
+                        app:customHint="@{@string/child_section}"
+                        app:dataItems="@{dashboardVM.mSectionList}"
+                        app:customItemDropDownLayoutRes="@{@layout/dropdown_tv_layout_left}"
+                        app:customItemDropDownTextViewId="@{@id/drop_down_tv}"
+                        app:customItemLayoutRes="@{@layout/item_dropdown_left}"
+                        app:customItemTextViewId="@{@id/drop_down_tv}"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/hintColor"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintLeft_toLeftOf="@+id/guideline_centre_vertical"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/class_label" />
+
+                    <Space
+                        android:id="@+id/space"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_10sdp"
+                        app:layout_constraintTop_toBottomOf="@+id/section_sp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnCancel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@drawable/btn_grey_bg"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:text="@string/cancel"
+                        android:textColor="@color/text_color_grey"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="@+id/guideline_centre_vertical"
+                        app:layout_constraintTop_toBottomOf="@id/space" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnSubmit"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@drawable/btn_green_bg"
+                        android:fontFamily="@font/bwsurcodemo_medium"
+                        android:text="@string/submit"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="@+id/guideline_centre_vertical"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/space" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </ScrollView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="24dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
